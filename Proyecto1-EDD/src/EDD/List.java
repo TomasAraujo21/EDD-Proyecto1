@@ -59,6 +59,7 @@ public class List {
     //Primitiva para insertar al final de la lista.
     public void addEnd(Object dato){
         Node pNew = new Node();
+        pNew.settInfo(dato);
         if (isEmpty()){
             pfirst = pNew;
         }else{
