@@ -6,10 +6,9 @@ package EDD;
 
 /**
  *
- * @author 58414
+ * @author Gabriel Flores
  */
 public class Edge {
-    //Atributos de la clase Edge(Arista).
     private Vertex homeCity;
     private Vertex finalCity;
     private double distance;
