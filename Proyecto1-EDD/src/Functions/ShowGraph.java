@@ -6,8 +6,8 @@ package Functions;
 
 /**
  *
- * @author 58414
+ * @author tomasaraujo
  */
 public class ShowGraph {
-    
+    // FUNCIONES DE LA LIBRERIA PARA MOSTRAR EL GRAFO
 }
