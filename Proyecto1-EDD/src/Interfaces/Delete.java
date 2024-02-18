@@ -6,12 +6,12 @@ package Interfaces;
 
 /**
  *
- * @author 58414
+ * @author Chris
  */
 public class Delete extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrame
+     * Creates new form Delete
      */
     public Delete() {
         initComponents();
@@ -67,7 +67,6 @@ public class Delete extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
