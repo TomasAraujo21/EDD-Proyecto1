@@ -19,6 +19,18 @@ public class Node {
         this.pNext = null;
     }
 
+    public Node(Object tInfo, Node pNext) {
+        this.tInfo = tInfo;
+        this.pNext = pNext;
+    }
+
+    public Node(Object tInfo) {
+        this.tInfo = tInfo;
+        this.pNext = null;
+    }
+    
+    
+
     //GETTERS Y SETTERS de la clase Node.
     public Object gettInfo() {
         return tInfo;
