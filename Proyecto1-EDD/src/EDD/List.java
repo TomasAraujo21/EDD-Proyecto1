@@ -181,5 +181,10 @@ public class List {
             size--;
         }
     }
+    
+    public void clear(){
+        pfirst = null;
+        size = 0;
+    }
 }
 
