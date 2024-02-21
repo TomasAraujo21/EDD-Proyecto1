@@ -8,15 +8,32 @@ package Interfaces;
  *
  * @author 58414
  */
+
+import static Interfaces.Main.graph;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 public class Load extends javax.swing.JFrame {
 
     /**
      * Creates new form Load
      */
-    public Load() {
+
+    public static Main v1;
+    
+    public Load(Main v1) {
         initComponents();
+        this.v1 = v1;
+        v1.setVisible(false);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);         
     }
     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,60 +43,125 @@ public class Load extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        botonVolverCargar = new javax.swing.JButton();
-        jFileChooser1 = new javax.swing.JFileChooser();
+        jPanel1 = new javax.swing.JPanel();
+        TITULO_Principal = new javax.swing.JLabel();
+        route = new javax.swing.JTextField();
+        search = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        LoadFile = new javax.swing.JTextArea();
+        back = new javax.swing.JButton();
+        save = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("Selecciona el archivo que deseas cargar:");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel2.setText("(recuerda que el archivo debe de ser de tipo .txt)");
+        TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
+        TITULO_Principal.setText("Load graph");
+        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        botonVolverCargar.setText("Volver");
+        route.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(route, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 290, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(botonVolverCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 49, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(83, 83, 83))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(botonVolverCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        search.setForeground(new java.awt.Color(0, 0, 0));
+        search.setText("Search archive");
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 110, -1));
+
+        LoadFile.setColumns(20);
+        LoadFile.setForeground(new java.awt.Color(0, 0, 0));
+        LoadFile.setRows(5);
+        jScrollPane1.setViewportView(LoadFile);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 288, 178));
+
+        back.setForeground(new java.awt.Color(0, 0, 0));
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 40));
+
+        save.setForeground(new java.awt.Color(0, 0, 0));
+        save.setText("Save graph");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 110, -1));
+
+        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
+        jLabel14.setText("Gabriel Flores");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 370));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        //Creo el Objeto JFileChooser
+        JFileChooser fc = new JFileChooser();
+
+        //Creo el filtro
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.TXT", "txt");
+
+        //Le indico el filtro
+        fc.setFileFilter(filtro);
+
+        //Abrimos la ventana, guardamos la op seleccionada por el usuario
+        int seleccion = fc.showOpenDialog(this);
+
+        //Si el usario presiona aceptar
+        if(seleccion == JFileChooser.APPROVE_OPTION){
+
+            //Selecciono el fichero
+            File fichero = fc.getSelectedFile();
+
+            //Escribir la ruta del fichero
+            this.route.setText(fichero.getAbsolutePath());
+
+            try(FileReader fr = new FileReader(fichero)){
+                String cadena = "";
+                int valor = fr.read();
+                while(valor != -1){
+                    cadena = cadena + (char) valor;
+                    valor = fr.read();
+                }
+                this.LoadFile.setText(cadena);
+            }catch (IOException e1){
+                e1.printStackTrace();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo.");
+        }
+    }//GEN-LAST:event_searchActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        this.setVisible(false);
+        Welcome b = new Welcome();
+        Main window1 = new Main(b);
+        window1.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        //System.out.println(Archivo_Cargado.getText());
+
+        //        funcion_txt func = new funcion_txt();
+        //        grafo = func.convertString(Archivo_Cargado.getText());
+        //        System.out.println(grafo.toString());
+    }//GEN-LAST:event_saveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,15 +193,20 @@ public class Load extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Load().setVisible(true);
+                new Load(v1).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonVolverCargar;
-    private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextArea LoadFile;
+    private javax.swing.JLabel TITULO_Principal;
+    private javax.swing.JButton back;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField route;
+    private javax.swing.JButton save;
+    private javax.swing.JButton search;
     // End of variables declaration//GEN-END:variables
 }

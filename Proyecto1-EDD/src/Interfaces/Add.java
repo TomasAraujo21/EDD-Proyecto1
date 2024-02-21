@@ -8,13 +8,26 @@ package Interfaces;
  *
  * @author 58414
  */
+
+import EDD.Edge;
+import EDD.Vertex;
+import EDD.Graph;
+import static Interfaces.Main.graph;
+import javax.swing.JOptionPane;
+
 public class Add extends javax.swing.JFrame {
 
     /**
      * Creates new form Add
      */
-    public Add() {
+    public static Main v1;
+    
+    public Add(Main v1) {
         initComponents();
+        this.v1 = v1;
+        v1.setVisible(false);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -27,108 +40,123 @@ public class Add extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        input_vertex = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        add_vertex = new javax.swing.JButton();
+        agg_arista = new javax.swing.JButton();
+        input_destiny = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        botonGuardar = new javax.swing.JButton();
-        cantAgregar = new javax.swing.JTextField();
-        botonVolverAgr = new javax.swing.JButton();
+        input_weight = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        botonAgregar = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        TITULO_Principal = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("Indica la cantidad de ciudades que deseas agregar:");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel2.setText("(recuerda que la cantidad total de ciudades debe rondar entre 4 y 20) ");
+        input_vertex.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(input_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, -1));
 
-        botonGuardar.setText("Guardar");
-        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("City's number:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        add_vertex.setForeground(new java.awt.Color(0, 0, 0));
+        add_vertex.setText("Add Vertex");
+        add_vertex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGuardarActionPerformed(evt);
+                add_vertexActionPerformed(evt);
             }
         });
+        jPanel1.add(add_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        cantAgregar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
-        botonVolverAgr.setText("Volver");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("Guardar grafo:");
-
-        botonAgregar.setText("Agregar");
-        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
+        agg_arista.setForeground(new java.awt.Color(0, 0, 0));
+        agg_arista.setText("Add Arista");
+        agg_arista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAgregarActionPerformed(evt);
+                agg_aristaActionPerformed(evt);
             }
         });
+        jPanel1.add(agg_arista, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cantAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(botonVolverAgr, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 62, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cantAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
-                .addComponent(botonVolverAgr, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
+        input_destiny.setForeground(new java.awt.Color(0, 0, 0));
+        input_destiny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_destinyActionPerformed(evt);
+            }
+        });
+        jPanel1.add(input_destiny, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 160, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Destination city's number:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
+
+        input_weight.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(input_weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 160, -1));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Weight:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+
+        back.setForeground(new java.awt.Color(0, 0, 0));
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 90, 50));
+
+        TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
+        TITULO_Principal.setText("Add cities");
+        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
+        jLabel14.setText("Gabriel Flores");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 320));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonGuardarActionPerformed
+    private void add_vertexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_vertexActionPerformed
+        int num = Integer.parseInt(input_vertex.getText());
+        Vertex vertexAux = new Vertex(num);
+        graph.addCity(vertexAux);
+        JOptionPane.showMessageDialog(null, "Vertice creado con exito");
+    }//GEN-LAST:event_add_vertexActionPerformed
 
-    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+    private void agg_aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agg_aristaActionPerformed
+        int num = Integer.parseInt(input_destiny.getText());
+        Vertex vertex2 = new Vertex(num);
+        int weight = Integer.parseInt(input_destiny.getText());
+
+        if(graph.findCity(vertex2)){
+            Edge edge = new Edge(graph.findCity2(Integer.parseInt(input_vertex.getText())), graph.findCity2(num), weight);
+            graph.findcity2(Integer.parseInt(input_vertex.getText())).getListAdy().InsertarFinal(edge);
+            JOptionPane.showMessageDialog(null, "Arista agregada");
+        }else{
+            JOptionPane.showMessageDialog(null, "Tu arista no se ´puede agregar");
+        }
+
+    }//GEN-LAST:event_agg_aristaActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        this.setVisible(false);
+        Welcome b = new Welcome();
+        Main window1 = new Main(b);
+        window1.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void input_destinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_destinyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonAgregarActionPerformed
+    }//GEN-LAST:event_input_destinyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,17 +188,21 @@ public class Add extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Add().setVisible(true);
+                new Add(v1).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAgregar;
-    private javax.swing.JButton botonGuardar;
-    private javax.swing.JButton botonVolverAgr;
-    private javax.swing.JTextField cantAgregar;
+    private javax.swing.JLabel TITULO_Principal;
+    private javax.swing.JButton add_vertex;
+    private javax.swing.JButton agg_arista;
+    private javax.swing.JButton back;
+    private javax.swing.JTextField input_destiny;
+    private javax.swing.JTextField input_vertex;
+    private javax.swing.JTextField input_weight;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

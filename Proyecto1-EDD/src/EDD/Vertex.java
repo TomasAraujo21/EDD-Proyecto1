@@ -16,9 +16,9 @@ public class Vertex {
     private List listAdy;
 
     //Constructor de la clase Vertex(Vertice).
-    public Vertex(int numCity, List listAdy) {
+    public Vertex(int numCity){
         this.numCity = numCity;
-        this.listAdy = listAdy;
+        this.listAdy = new List();
     }
 
     //Getters and Setters de la clase Vertex.
@@ -44,7 +44,7 @@ public class Vertex {
            case 0 -> listAdy.addEnd(edge);
            case 1 -> JOptionPane.showMessageDialog(null, "La arista ya existe");
            default -> JOptionPane.showMessageDialog(null, "La arista no es valida");
-       }//Hacerlo por if y else para que noe ste igual
+       }
     }
     
     //Primitva para eliminar una Arista.
@@ -69,5 +69,15 @@ public class Vertex {
         }else{
             return 0;
         } 
+    }
+    
+    public double findDistance(int numCity){
+        for(int i =0; i < listAdy.getSize();i++){
+            Edge edgeNew = (Edge) listAdy.getValor(i);
+            if(edgeNew.getFinalCity().getNumCity() == numCity){
+                return edgeNew.getDistance();
+            }
+        }
+        return 0;
     }
 }

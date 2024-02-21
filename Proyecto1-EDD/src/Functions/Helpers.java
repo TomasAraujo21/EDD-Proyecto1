@@ -6,7 +6,8 @@ package Functions;
 
 /**
  *
- * @author 58414
+ * @author Gabriel Flores
+ * 
  */
 public class Helpers {
     private boolean isNumber(String num){

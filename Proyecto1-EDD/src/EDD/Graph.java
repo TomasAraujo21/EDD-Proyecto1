@@ -11,21 +11,12 @@ import javax.swing.JOptionPane;
  * @author Gabriel Flores
  */
 public class Graph {
-    private int numVertice;
+    
     private List cities;
 
     //Constructor de la clase Graph.
     public Graph() {
         this.cities = new List();
-    }
-
-    //Getters y Setters de la clase Graph.
-    public int getNumVertice() {
-        return numVertice;
-    }
-
-    public void setNumVertice(int numVertice) {
-        this.numVertice = numVertice;
     }
 
     public List getCities() {
@@ -38,7 +29,7 @@ public class Graph {
     
     //Primitiva para agregar un vertice al grafo.
     public void addCity(Vertex vertex){
-        if(findCity(vertex)==false){
+        if(!findCity(vertex)){
             cities.addEnd(vertex);
             JOptionPane.showMessageDialog(null, "El vertice se ha agregado correctamente!");
         }else{
@@ -52,7 +43,7 @@ public class Graph {
                 if(vertexAux.getNumCity()==edge.getHomeCity().getNumCity()){
                     vertexAux.getListAdy().addEnd(edge);
                 }else if(vertexAux.getNumCity()==edge.getFinalCity().getNumCity()){
-                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(),edge.getDistance());
+                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(),edge.getDistance(),edge.getPhermone());
                     vertexAux.getListAdy().addEnd(edgeAux);
                 }else{
                     JOptionPane.showConfirmDialog(null, "La arista ya se encuentra en el grafo!");
@@ -64,9 +55,9 @@ public class Graph {
     
     public boolean findCity(Vertex vertex){
         int numVer = vertex.getNumCity();
-        for(int i =0;i<cities.getSize();i++){
+        for(int i = 0; i < cities.getSize(); i++){
             Vertex vertexAux =(Vertex) cities.getValor(i);
-            if(vertexAux.getNumCity()==numVer){
+            if(vertexAux.getNumCity()== numVer){
                 return true;
             }
         }
@@ -104,7 +95,7 @@ public class Graph {
                 if(vertexAux.getNumCity()==edge.getHomeCity().getNumCity()){
                     vertexAux.getListAdy().deleteByReference(vertexAux.getNumCity());
                 }else if(vertexAux.getNumCity()==edge.getFinalCity().getNumCity()){
-                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(),edge.getDistance());
+                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(),edge.getDistance(), edge.getPhermone());
                     vertexAux.getListAdy().deleteByReference(edgeAux);
                 }else{
                     JOptionPane.showConfirmDialog(null, "La arista no existe en el grafo!");
@@ -126,14 +117,14 @@ public class Graph {
             sb.append(vertexAux.getNumCity()).append("\n");
         }
         sb.append("Aristas:\n");
-        for(int i =0; i>cities.getSize();i++){
+        for(int i =0; i<cities.getSize();i++){
             Vertex vertexAux = (Vertex) cities.getValor(i);
             for(int j=0; j<vertexAux.getListAdy().getSize();j++){
                 Edge edgeAux = (Edge) vertexAux.getListAdy().getValor(j);
-                if(edgeAux.getHomeCity().getNumCity()< vertexAux.getNumCity()){
-                    sb.append(edgeAux.getHomeCity().getNumCity()).append(",").append(edgeAux.getFinalCity());
+                if(edgeAux.getFinalCity().getNumCity()> vertexAux.getNumCity()){
+                    sb.append(edgeAux.getHomeCity().getNumCity()).append(",").append(edgeAux.getFinalCity().getNumCity()).append(",").append(edgeAux.getDistance()).append("\n");
+//                   
                 }
-                
             }
         }
         return sb.toString();
