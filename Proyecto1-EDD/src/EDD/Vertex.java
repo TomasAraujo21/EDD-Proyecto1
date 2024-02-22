@@ -16,7 +16,12 @@ public class Vertex {
     private List listAdy;
 
     //Constructor de la clase Vertex(Vertice).
-    public Vertex(int numCity){
+    public Vertex(int numCity, List listAdy) {
+        this.numCity = numCity;
+        this.listAdy = listAdy;
+    }
+    
+    public Vertex(int numCity) {
         this.numCity = numCity;
         this.listAdy = new List();
     }
@@ -69,5 +74,25 @@ public class Vertex {
         }else{
             return 0;
         } 
+    }
+    
+    public Edge findEdge2(int numCity){
+        for (int i = 0; i < listAdy.getSize(); i++) {
+            Edge edgeAux = (Edge) listAdy.getValor(i);
+            if(edgeAux.getFinalCity().getNumCity() == numCity){
+                return edgeAux;
+            }
+        }
+        return null;
+    }
+    
+    public double findDistance(int numCity) {
+        for (int i = 0; i < listAdy.getSize(); i++) {
+            Edge edge = (Edge) listAdy.getValor(i);
+            if (edge.getFinalCity().getNumCity() == numCity) {
+                return edge.getDistance();
+            }
+        }
+        return 0;
     }
 }
