@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Classes;
+
 import EDD.*;
 
 /**
@@ -12,9 +13,9 @@ import EDD.*;
 public class SystemAnt {
     // AQUI VA TODA LA INFO QUE SI ALPHA, BETA, Y ESO.
     // LAS PRIMITIVAS VAN A SER, ACTUALIZAR LOS CICLOS, EVPARORAR FEROMONAS, ACTUALIZAR FEROMONAS.
-    
+
     private List ants;
-    private double rho;
+    private double q;
     private double alpha;
     private double beta;
     private Vertex startCity;
@@ -24,8 +25,10 @@ public class SystemAnt {
     private String pheromones;
     private double optimalDistance;
     private List history;       // EN EL HISTORIAL GUARDO LOS OBJETOS DE TIPO OPTIMO
+    private List tempHistory;
+    private int cycles;
 
-    public SystemAnt(List ants, double rho, double alpha, double beta, Vertex startCity, Vertex endCity, Graph graph) {
+    public SystemAnt(List ants, double rho, double alpha, double beta, Vertex startCity, Vertex endCity, Graph graph, int cycles) {
         this.ants = ants;
         this.alpha = alpha;
         this.beta = beta;
@@ -34,12 +37,13 @@ public class SystemAnt {
         this.graph = graph;
         this.optimalRoute = "";
         this.pheromones = "";
-        this.optimalDistance = 0; 
+        this.optimalDistance = 0;
         this.history = new List();
+        this.tempHistory = new List();
+        this.cycles = cycles;
     }
-    
+
     // HACER TODOS LOS GETTER Y SETTER PARA LOS PARAMETROS
-    
     /**
      * @return the ants
      */
@@ -58,14 +62,14 @@ public class SystemAnt {
      * @return the rho
      */
     public double getRho() {
-        return rho;
+        return q;
     }
 
     /**
      * @param rho the rho to set
      */
     public void setRho(double rho) {
-        this.rho = rho;
+        this.q = rho;
     }
 
     /**
@@ -193,44 +197,111 @@ public class SystemAnt {
     public void setHistory(List history) {
         this.history = history;
     }
-    
-    // Primero debemos hacer una verificacion que el grafo exista, porque sin grafo no hay ningun sistema
-    public boolean GraphExists(Graph grpah) {
-        
-        return false;
+
+    public void runSystem() {
+        for (int i = 0; i < cycles; i++) {
+            for (int j = 0; j < ants.getSize(); j++) {
+                Ant ant = new Ant();
+                fullCycle(ant);
+            }
+            resetAnts();
+        }
+
+    }
+
+    public String fullCycle(Ant ant) {
+        for (int i = 0; i < graph.getCities().getSize(); i++) {
+            if (ant.getCity() != endCity) {
+                List possibleCities = getPossibleCity(ant);
+                if (!possibleCities.isEmpty()) {
+                    List odds = chances(possibleCities);
+                    Vertex nextCity = decideNextCity(possibleCities, odds);
+                    ant.visitCity(nextCity, nextCity.findDistance(nextCity.getNumCity()));
+                } 
+            } else {
+                ant.setArrived(true);
+            }
+//            History temp = new History(ant.getPastCities(), ME FALTA OBTENER LAS FEROMONAS, ant.getDistance());
+//            this.tempHistory.addEnd(temp);
+        }
+        this.history.addEnd(tempHistory);
+        return history.toString();
     }
     
-    
-    // Como la distancia se inicializa en cero, para el ciclo 1 no debemos comparar con nuestro atributo distanciaOptima
-    
-    private void runSystems() {
-        
+    public void resetAnts() {
+        for (int i = 0; i < ants.getSize(); i++) {
+            Ant ant = (Ant) ants.getValor(i);
+            ant.setDistance(0);
+            ant.getPastCities().clear();
+            ant.setCity(startCity);
+        }
     }
-    
-//    public Vertex decideNextCity(Ant h) {
-//        Vertex ciudadHormiga = h.getCity();
-//        List probabilidades = new List();
-//        
-//        double sumaProbabilidades = 0.0;
-//        for (int i = 0; i < ciudadHormiga.getListAdy().getSize(); i++) {
-//            Edge edge = (Edge) ciudadHormiga.getListAdy().getValor(i);
-//            Vertex destino = edge.getFinalCity();
-//            if (!hVisited(destino)) {
-//                int p = (edge.getFeromonas) **1 * (edge.getDistance())**2;
-//                sumaProbabilidades += p;    // despues se multiplica con la lista
-//            }
-//        }
-//    } 
-    
-//    private void mover(Ant h) {
-//        // SE VAN A MOVER POR TODO EL GRAFO HASTA QUE LLEGUEN A LA CIUDAD FINAL 
-//        for (int i = 0; i < graph; i++) {
-//            if (h.getCity() != endCity) {
-//                // DECIDO A DONDE MOVERME (esto retorna una ciudad)
-//                // h.vistCity(ciudad retornada antes, distancia)
-//            }else{
-//                break;
-//            }
-//        }
-//    }
+
+    public List getPossibleCity(Ant ant) {
+        Vertex city = ant.getCity();
+        List possibleCities = new List();
+        for (int i = 0; i < city.getListAdy().getSize(); i++) {
+            Edge edge = (Edge) city.getListAdy().getValor(i);
+            if (ant.visited(edge.getFinalCity())) {
+                possibleCities.addEnd(edge);
+            }
+        }
+        return possibleCities;
+    }
+
+    /*
+     EXPLICACION
+     (En la formula)
+     P = probabilidad
+     k = hormiga
+     r = ciudad inicial
+     s = ciudad final
+     Mk = son las ciudades candidatas
+     el 0 que esta en la formula, es porque si una ciudad no esta en Mk (las ciudades candidatas) la probabilidad de ir es cero 0.
+     T(r,s) = la cantidad de feromonas que hay en esa arista, ^ alpha (elevado)
+     n(r,s) = Q/distanciar-s, ^ beta (elevado)
+     alpha = es 1 por default
+     beta = 2 por deafault
+     */
+    public List chances(List possibleCities) {
+        List odds = new List();
+        double sumOdds = 0.0;
+        for (int i = 0; i < possibleCities.getSize(); i++) {
+            Edge edge = (Edge) possibleCities.getValor(i);
+            double tau = Math.pow(edge.getFermonas(), this.alpha);
+            double eta = Math.pow(q / edge.getDistance(), this.beta);
+            double chances = tau * eta;
+            odds.addEnd(chances);
+            sumOdds += chances;
+        }
+        return odds;
+    }
+
+    public Vertex decideNextCity(List possibleCities, List odds) {
+        int position = -1;
+        double bestOdd = 0.0;
+        for (int i = 0; i < odds.getSize(); i++) {
+            if (i == 0) {
+                position = i;
+                bestOdd = (double) odds.getValor(i);
+            } else {
+                double probabilidadActual = (double) odds.getValor(i);
+                if (probabilidadActual > bestOdd) {
+                    position = i;
+                    bestOdd = (double) odds.getValor(i);
+                }
+            }
+        }
+        Edge finalEdge = (Edge) possibleCities.getValor(position);
+        return finalEdge.getFinalCity();
+    }
+
+    public void updatePheromones() {
+
+    }
+
+    public void evaporatePheromones() {
+
+    }
+ 
 }
