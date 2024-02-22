@@ -207,21 +207,6 @@ public class SystemAnt {
         
     }
     
-//    public Vertex decideNextCity(Ant h) {
-//        Vertex ciudadHormiga = h.getCity();
-//        List probabilidades = new List();
-//        
-//        double sumaProbabilidades = 0.0;
-//        for (int i = 0; i < ciudadHormiga.getListAdy().getSize(); i++) {
-//            Edge edge = (Edge) ciudadHormiga.getListAdy().getValor(i);
-//            Vertex destino = edge.getFinalCity();
-//            if (!hVisited(destino)) {
-//                int p = (edge.getFeromonas) **1 * (edge.getDistance())**2;
-//                sumaProbabilidades += p;    // despues se multiplica con la lista
-//            }
-//        }
-//    } 
-    
 //    private void mover(Ant h) {
 //        // SE VAN A MOVER POR TODO EL GRAFO HASTA QUE LLEGUEN A LA CIUDAD FINAL 
 //        for (int i = 0; i < graph; i++) {

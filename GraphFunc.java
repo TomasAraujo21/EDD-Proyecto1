@@ -8,6 +8,9 @@ package Functions;
  *
  * @author tomasaraujo
  */
-public class ShowGraph {
-    // FUNCIONES DE LA LIBRERIA PARA MOSTRAR EL GRAFO
+public class GraphFunc {
+    // AQUI VAN TODAS LAS FUNCIONES QUE MODIFICAN EL GRAFO EN LA INTERFAZ
+    // AGREGAR CIUDAD (GRAFO, NOMBRE, LISTAADY)
+    // AGREGAR CIUDADES_ASOC (NOMBRE, FINAL, PESO)
+    // ELIMINAR CIUDAD
 }

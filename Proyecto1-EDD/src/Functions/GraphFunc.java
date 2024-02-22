@@ -6,7 +6,7 @@ package Functions;
 
 /**
  *
- * @author 58414
+ * @author tomasaraujo
  */
 
 import EDD.*;

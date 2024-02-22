@@ -9,12 +9,12 @@ package Classes;
  * @author tomasaraujo
  */
 public class Optimal {
-    private String optimalRoute;
+    private String caminoOptimo;
     private double distance;
     private String pheromones;
 
-    public Optimal(String optimalRoute, double distance, String pheromones) {
-        this.optimalRoute = optimalRoute;
+    public Optimal(String caminoOptimo, double distance, String pheromones) {
+        this.caminoOptimo = caminoOptimo;
         this.distance = distance;
         this.pheromones = pheromones;
     }
@@ -23,14 +23,14 @@ public class Optimal {
      * @return the caminoOptimo
      */
     public String getCaminoOptimo() {
-        return optimalRoute;
+        return caminoOptimo;
     }
 
     /**
      * @param caminoOptimo the caminoOptimo to set
      */
     public void setCaminoOptimo(String caminoOptimo) {
-        this.optimalRoute = caminoOptimo;
+        this.caminoOptimo = caminoOptimo;
     }
 
     /**

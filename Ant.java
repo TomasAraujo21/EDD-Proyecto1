@@ -76,7 +76,7 @@ public class Ant {
         Node pValue = new Node();
         pValue = pastCities.getpFirst();
         for (int i = 0; i < pastCities.getSize(); i++) {
-            if (pValue.gettInfo() == city) {
+            if (pValue.gettInfo().equals(city)) {
                 JOptionPane.showMessageDialog(null, "Esta ciudad ya ha sido visitada");
                 pValue = pValue.getpNext();
                 return true;
@@ -92,10 +92,8 @@ public class Ant {
         // primero verifico que esa ciudad no esta en la lista de ciudades recorridas
         // si ya la visitó, no se hace nada. Usamos la funcion visited para eso
         if (visited(city)) {
-            // CORREGIR ESTO
             JOptionPane.showMessageDialog(null, "La ciudad ya fue visitada");
         }else{
-            this.setCity(city);
             this.pastCities.addEnd(city);
         }
     }
@@ -106,7 +104,6 @@ public class Ant {
         // Sumamos la distancia recorrida que actualmente += a la distancia que pasamos por parametro
         // Y por ulitmo hacemos un setCity (set ciudad actual) para actualizarla.
         if (visited(city)) {
-            // CORREGIR ESTO
             JOptionPane.showMessageDialog(null, "La ciudad ya fue visitada");
         }else{
             this.pastCities.addEnd(city);
