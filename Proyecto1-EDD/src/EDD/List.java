@@ -10,24 +10,24 @@ package EDD;
  */
 public class List {
     //Atributos de la clase list.
-    private Node pfirst;
+    private Node pFirst;
     private int size;
 
     
     //Constructor de la clase list.
     public List() {
-        this.pfirst = null;
+        this.pFirst = null;
         this.size = 0;
     }
     
     //GETTERS Y SETTERS de la clase List.
     
-    public Node getPfirst() {
-        return pfirst;
+    public Node getpFirst() {
+        return pFirst;
     }
 
-    public void setPfirst(Node pfirst) {
-        this.pfirst = pfirst;
+    public void setpFirst(Node pfirst) {
+        this.pFirst = pfirst;
     }
 
     public int getSize() {
@@ -40,7 +40,7 @@ public class List {
     
     //Primitiva para verificar si la lista se encuentra vacia o no.
     public boolean isEmpty(){
-        return this.pfirst == null;
+        return this.pFirst == null;
     }
     
     //Primitiva para insertar al inicio de la lista.
@@ -48,22 +48,21 @@ public class List {
         Node pnew = new Node();
         pnew.settInfo(dato);       
         if (isEmpty()){
-            pfirst = pnew;
+            pFirst = pnew;
         }else{
-            pnew.setpNext(pfirst);
-            pfirst = pnew;
+            pnew.setpNext(pFirst);
+            pFirst = pnew;
         }
         size ++;
     }
     
     //Primitiva para insertar al final de la lista.
     public void addEnd(Object dato){
-        Node pNew = new Node();
-        pNew.settInfo(dato);
+        Node pNew = new Node(dato);
         if (isEmpty()){
-            pfirst = pNew;
+            pFirst = pNew;
         }else{
-            Node aux = pfirst;
+            Node aux = pFirst;
             while(aux.getpNext()!= null){
                 aux = aux.getpNext();
             }
@@ -78,17 +77,17 @@ public class List {
             Node pNew = new Node();
             pNew.settInfo(dato);
             if (position ==0){
-                pNew.settInfo(pfirst);
-                pfirst = pNew;
+                pNew.settInfo(pFirst);
+                pFirst = pNew;
             } else{
                 if (position == size){
-                    Node aux = pfirst;
+                    Node aux = pFirst;
                     while (aux.getpNext() != null){
                         aux.getpNext();
                     }
                     aux.setpNext(pNew);
                 }else{
-                    Node aux = pfirst;
+                    Node aux = pFirst;
                     for (int i=0;i<(position - 1);i++){
                         aux = aux.getpNext();
                     }
@@ -106,7 +105,7 @@ public class List {
         if (isEmpty()) {
             return -1;
         } else {
-            Node pointer = getPfirst();
+            Node pointer = getpFirst();
             int cont = 0;
             while (cont < index && pointer.getpNext() != null) {
                 pointer = pointer.getpNext();
@@ -119,7 +118,7 @@ public class List {
     //Primitiva mostrar los elementos de una lista.
     public void show() {
         if(!isEmpty()){
-            Node pointer = getPfirst();
+            Node pointer = getpFirst();
             while(pointer!=null){
             System.out.println("["+pointer.gettInfo()+"]");
             pointer = pointer.getpNext();
@@ -132,7 +131,7 @@ public class List {
     //Primitva para eliminar al inicio de una lista simple.
     public boolean deleteStart(){
         if(!isEmpty()){
-            pfirst = pfirst.getpNext();
+            pFirst = pFirst.getpNext();
             size--;
             return true;
         }else{
@@ -143,7 +142,7 @@ public class List {
     //Primitiva para eliminar al final de una lista simple.
     public void deleteFinal(){
         if (!isEmpty()){
-            Node pointer = getPfirst();
+            Node pointer = getpFirst();
             while (pointer.getpNext() != null){
                 pointer = pointer.getpNext();
             }
@@ -153,7 +152,7 @@ public class List {
     }
     
     public boolean find(Object reference){
-        Node aux = pfirst;
+        Node aux = pFirst;
         boolean find = false;
         while(aux != null && find != true){
             if (reference == aux.gettInfo()){ 
@@ -168,10 +167,10 @@ public class List {
     
     public void deleteByReference(Object reference){
         if (find(reference)) {
-            if (pfirst.gettInfo() == reference) {
-                pfirst = pfirst.getpNext();
+            if (pFirst.gettInfo() == reference) {
+                pFirst = pFirst.getpNext();
             } else{
-                Node aux = pfirst;
+                Node aux = pFirst;
                 while(aux.getpNext().gettInfo() != reference){
                     aux = aux.getpNext();
                 }
@@ -182,8 +181,20 @@ public class List {
         }
     }
     
+    public String transform(){
+        if(!isEmpty()){
+            Node aux = pFirst;
+            String expression = "";
+            for (int i = 0; i < size; i++) {
+                expression += aux.gettInfo().toString() + "\n";
+                aux = aux.getpNext();
+            }
+            return expression;
+        }
+        return "Lista vacia";
+    }
     public void clear(){
-        pfirst = null;
+        pFirst = null;
         size = 0;
     }
 }
