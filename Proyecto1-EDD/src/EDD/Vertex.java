@@ -9,14 +9,15 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author GAbriel Flores
- * 
+ *
  */
 public class Vertex {
+
     private int numCity;
     private List listAdy;
 
     //Constructor de la clase Vertex(Vertice).
-    public Vertex(int numCity){
+    public Vertex(int numCity) {
         this.numCity = numCity;
         this.listAdy = new List();
     }
@@ -37,37 +38,66 @@ public class Vertex {
     public void setListAdy(List listAdy) {
         this.listAdy = listAdy;
     }
-    
+
     //Primitva para agregar una Arista.
-    public void addEdges(Edge edge){
-       switch (findEdge(edge)){
-           case 0 -> listAdy.addEnd(edge);
-           case 1 -> JOptionPane.showMessageDialog(null, "La arista ya existe");
-           default -> JOptionPane.showMessageDialog(null, "La arista no es valida");
-       }
+    public void addEdges(Edge edge) {
+        switch (findEdge(edge)) {
+            case 0 ->
+                listAdy.addEnd(edge);
+            case 1 ->
+                JOptionPane.showMessageDialog(null, "La arista ya existe");
+            default ->
+                JOptionPane.showMessageDialog(null, "La arista no es valida");
+        }
     }
-    
-    //Primitva para eliminar una Arista.
-    public void deleteEdge(Edge edge){
-        switch (findEdge(edge)){
-           case 0 -> listAdy.deleteStart();
-           case 1 -> JOptionPane.showMessageDialog(null, "La arista ya existe");
-           default -> JOptionPane.showMessageDialog(null, "La arista no es valida");
+
+    public void deleteEdge(Edge edge) {
+        switch (findEdgeIndex(edge)) {
+            case 0 ->
+                JOptionPane.showMessageDialog(null, "La arista no es valida");
+            case -1 ->
+                JOptionPane.showMessageDialog(null, "La arista no existe");
+            default ->
+                this.listAdy.deleteByIndex(findEdgeIndex(edge));
+        }
+    }
+
+    //Primitiva para determinar si una Arista existe o no.
+    public int findEdge(Edge edge) {
+        if (edge.getHomeCity().getNumCity() == numCity) {
+            for (int i = 0; i < listAdy.getSize(); i++) {
+                Edge edgeAux = (Edge) listAdy.getValor(i);
+                if (edgeAux.getFinalCity().getNumCity() == edge.getFinalCity().getNumCity()) {
+                    return 1;
+                }
+            }
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int findEdgeIndex(Edge edge) {
+        if (edge.getHomeCity().getNumCity() == numCity) {
+            for (int i = 0; i < listAdy.getSize(); i++) {
+                Edge edgeAux = (Edge) listAdy.getValor(i);
+                if (edgeAux.getFinalCity().getNumCity() == edge.getFinalCity().getNumCity()) {
+                    return i;
+                }
+            }
+            return -1;
+        } else {
+            return 0;
         }
     }
     
-    //Primitiva para determinar si una Arista existe o no.
-    public int findEdge(Edge edge){
-        if(edge.getHomeCity().getNumCity()==numCity){
-            for(int i = 0; i < listAdy.getSize();i++){
-                Edge edgeAux= (Edge) listAdy.getValor(i);
-                if(edgeAux.getFinalCity().getNumCity()== edge.getFinalCity().getNumCity()){
-                    return 1;
-                }    
+    public double findDistance(int numCity){
+        for(int i =0; i < listAdy.getSize();i++){
+            Edge edgeNew = (Edge) listAdy.getValor(i);
+            if(edgeNew.getFinalCity().getNumCity() == numCity){
+                return edgeNew.getDistance();
             }
-            return -1;
-        }else{
-            return 0;
-        } 
+        }
+        return 0;
     }
 }

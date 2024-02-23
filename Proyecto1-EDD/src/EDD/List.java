@@ -182,6 +182,21 @@ public class List {
         }
     }
     
+        
+    public void deleteByIndex(int index){
+        if(index>= 0 || index<this.size){
+            Node aux = this.pfirst;
+            for (int i = 0; i < index-1; i++) {
+                aux = aux.getpNext();
+            }
+            
+            Node pNext = aux.getpNext();
+            aux.setpNext(pNext.getpNext());
+            size --;
+
+        }
+    }
+    
     public void clear(){
         pfirst = null;
         size = 0;
