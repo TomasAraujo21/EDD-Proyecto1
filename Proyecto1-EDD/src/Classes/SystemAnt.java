@@ -209,7 +209,7 @@ public class SystemAnt {
 
     }
 
-    public String fullCycle(Ant ant) {
+    public void fullCycle(Ant ant) {
         for (int i = 0; i < graph.getCities().getSize(); i++) {
             if (ant.getCity() != endCity) {
                 List possibleCities = getPossibleCity(ant);
@@ -217,15 +217,23 @@ public class SystemAnt {
                     List odds = chances(possibleCities);
                     Vertex nextCity = decideNextCity(possibleCities, odds);
                     ant.visitCity(nextCity, nextCity.findDistance(nextCity.getNumCity()));
+                }else{
+                    break;
                 } 
             } else {
                 ant.setArrived(true);
+                break;
             }
-//            History temp = new History(ant.getPastCities(), ME FALTA OBTENER LAS FEROMONAS, ant.getDistance());
-//            this.tempHistory.addEnd(temp);
         }
-        this.history.addEnd(tempHistory);
-        return history.toString();
+        if (optimalDistance == 0) {
+            this.setOptimalDistance(ant.getDistance());
+            this.setOptimalRoute(ant.getPastCities().toString());
+        }else{
+            if (ant.getDistance() < this.getOptimalDistance() && ant.getCity().getNumCity() == this.startCity.getNumCity()) {
+                this.setOptimalDistance(ant.getDistance());
+                this.setOptimalRoute(ant.getPastCities().toString());
+            }
+        }
     }
     
     public void resetAnts() {
