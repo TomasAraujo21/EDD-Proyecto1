@@ -7,21 +7,52 @@ import EDD.*;
 
 /**
  *
- * @author tomasaraujo
+ * @author Gabriel Flores
  */
 public class History {
-    private int numAnt;
-    private List recorridoHormiga;
-    private List feromonasEnRecorrido;
-    private double distanciaRecorrida;
+    private String title;
+    private String antTrail;
+    private String optimalRoad;
+    private double optimalDistance;
 
-    public History(List recorridoHormiga, List feromonasEnRecorrido, double distanciaRecorrida) {
-        this.numAnt = 0;
-        this.recorridoHormiga = recorridoHormiga;
-        this.feromonasEnRecorrido = feromonasEnRecorrido;
-        this.distanciaRecorrida = distanciaRecorrida;
+    public History(String title, String antTrail, String optimalRoad, double optimalDistance) {
+        this.title = title;
+        this.antTrail = antTrail;
+        this.optimalRoad = optimalRoad;
+        this.optimalDistance = optimalDistance;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAntTrail() {
+        return antTrail;
+    }
+
+    public void setAntTrail(String antTrail) {
+        this.antTrail = antTrail;
+    }
+
+    public String getOptimalRoad() {
+        return optimalRoad;
+    }
+
+    public void setOptimalRoad(String optimalRoad) {
+        this.optimalRoad = optimalRoad;
+    }
+
+    public double getOptimalDistance() {
+        return optimalDistance;
+    }
+
+    public void setOptimalDistance(double optimalDistance) {
+        this.optimalDistance = optimalDistance;
+    }
     
     
 }
