@@ -45,8 +45,8 @@ public class SystemFunc {
         for (int i = 0; i < graph.getCities().getSize(); i++) {
             Vertex vertexAux = (Vertex) graph.getCities().getValor(i);
             for (int j = 0; j < vertexAux.getListAdy().getSize(); j++) {
-                Edge aristaActual = (Edge) vertexAux.getListAdy().getValor(i);
-                aristaActual.setPheromones(startPheromone);
+                Edge edgeAux = (Edge) vertexAux.getListAdy().getValor(i);
+                edgeAux.setPheromones(startPheromone);
             }
         }
     }
