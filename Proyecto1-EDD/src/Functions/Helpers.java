@@ -44,4 +44,11 @@ public class Helpers {
         }
     }
     
+    public boolean validarRho(String number){
+        if(this.validateDecimalNumbers(number) != -1){
+            //validar que ese numero sea mayor o igual que cero y menor que 1
+        }
+        return false;
+    }
+    
 }

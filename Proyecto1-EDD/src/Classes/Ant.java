@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Classes;
+
 import EDD.*;
 import javax.swing.*;
 
@@ -11,6 +12,7 @@ import javax.swing.*;
  * @author tomasaraujo
  */
 public class Ant {
+
     private Vertex city;
     private List pastCities;
     private double distance;
@@ -21,7 +23,7 @@ public class Ant {
         this.pastCities = pastCities;
         this.distance = distance;
     }
-    
+
     public Ant() {
         this.city = null;
         this.pastCities = new List();
@@ -70,36 +72,44 @@ public class Ant {
     public void setDistance(double distance) {
         this.distance = distance;
     }
-    
+
+    public boolean isArrived() {
+        return arrived;
+    }
+
+    public void setArrived(boolean arrived) {
+        this.arrived = arrived;
+    }
+
     public boolean visited(Vertex city) {
         // verificar que la ciudad que estoy pasando por parametro esta en la lista de ciudades recorridas de la hormiga
         Node pValue = new Node();
-        pValue = pastCities.getpFirst();
+        pValue = pastCities.getPfirst();
         for (int i = 0; i < pastCities.getSize(); i++) {
             if (pValue.gettInfo() == city) {
                 JOptionPane.showMessageDialog(null, "Esta ciudad ya ha sido visitada");
                 pValue = pValue.getpNext();
                 return true;
-            }else{
+            } else {
                 pValue = pValue.getpNext();
                 return false;
             }
         }
         return false;
     }
-    
+
     public void addPastCity(Vertex city) {
         // primero verifico que esa ciudad no esta en la lista de ciudades recorridas
         // si ya la visitó, no se hace nada. Usamos la funcion visited para eso
         if (visited(city)) {
             // CORREGIR ESTO
             JOptionPane.showMessageDialog(null, "La ciudad ya fue visitada");
-        }else{
+        } else {
             this.setCity(city);
             this.pastCities.addEnd(city);
         }
     }
-    
+
     public void visitCity(Vertex city, double dist) {
         // Primero verificamos que la ciudad que pasamos como parametro no haya sido visitada
         // Si no ha sido visitada, la agregamos a la lista de ciudades recorridas
@@ -108,10 +118,11 @@ public class Ant {
         if (visited(city)) {
             // CORREGIR ESTO
             JOptionPane.showMessageDialog(null, "La ciudad ya fue visitada");
-        }else{
+        } else {
             this.pastCities.addEnd(city);
             this.distance += dist;
             this.setCity(city);
         }
-    } 
+    }
+
 }
