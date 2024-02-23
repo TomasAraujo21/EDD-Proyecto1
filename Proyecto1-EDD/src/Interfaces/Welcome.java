@@ -29,6 +29,9 @@ public class Welcome extends javax.swing.JFrame {
     private void initComponents() {
 
         next = new javax.swing.JButton();
+        check_icon = new javax.swing.JLabel();
+        ant_colony1 = new javax.swing.JLabel();
+        ant_colony = new javax.swing.JLabel();
         TITULO_Principal = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,7 +45,7 @@ public class Welcome extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,30 +59,39 @@ public class Welcome extends javax.swing.JFrame {
         });
         getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 394, 90, 40));
 
-        TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        check_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/team.png"))); // NOI18N
+        getContentPane().add(check_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 80, 80));
+
+        ant_colony1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/arrow.png"))); // NOI18N
+        getContentPane().add(ant_colony1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 120, 91));
+
+        ant_colony.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/antcolony.png"))); // NOI18N
+        getContentPane().add(ant_colony, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 210, 161));
+
+        TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
         TITULO_Principal.setText("Welcome!");
-        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Press next to continue");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 190, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, 40));
 
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Welcome to our project about an Optimization");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 380, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 380, 40));
 
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText(" algorithm based on the behavior of ant colonies.");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 420, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 420, 40));
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("You will be able to choose between:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 310, 40));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 310, 40));
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,22 +101,22 @@ public class Welcome extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("- Delete cities");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 130, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 130, 40));
 
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("- Load graph");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 120, 40));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 120, 40));
 
         jLabel9.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("- Start simulation");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, 40));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 160, 40));
 
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("- Add cities");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 110, 40));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, 40));
 
         jLabel11.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,10 +133,10 @@ public class Welcome extends javax.swing.JFrame {
         jLabel13.setText("Gabriel Flores");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 100, 40));
 
-        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
-        jLabel14.setText("Gabriel Flores");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 470));
+        background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
+        background.setText("Gabriel Flores");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,11 +184,14 @@ public class Welcome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TITULO_Principal;
+    private javax.swing.JLabel ant_colony;
+    private javax.swing.JLabel ant_colony1;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel check_icon;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

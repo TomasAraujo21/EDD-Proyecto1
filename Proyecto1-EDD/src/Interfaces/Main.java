@@ -39,6 +39,13 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        add_icon = new javax.swing.JLabel();
+        cross_icon = new javax.swing.JLabel();
+        start_icon = new javax.swing.JLabel();
+        check_icon = new javax.swing.JLabel();
+        city_icon = new javax.swing.JLabel();
+        load_icon = new javax.swing.JLabel();
+        city_icon1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         ButtonAdd = new javax.swing.JButton();
         ButtonDelete = new javax.swing.JButton();
@@ -48,17 +55,38 @@ public class Main extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         TITULO_Principal = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        add_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus.png"))); // NOI18N
+        jPanel1.add(add_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 30, 30));
+
+        cross_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cross.png"))); // NOI18N
+        jPanel1.add(cross_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 30, 30));
+
+        start_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/start.png"))); // NOI18N
+        jPanel1.add(start_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
+
+        check_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkmark.png"))); // NOI18N
+        jPanel1.add(check_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 30, 30));
+
+        city_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cities.png"))); // NOI18N
+        jPanel1.add(city_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+
+        load_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/file.png"))); // NOI18N
+        jPanel1.add(load_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
+
+        city_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cities.png"))); // NOI18N
+        jPanel1.add(city_icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Delete cities:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         ButtonAdd.setForeground(new java.awt.Color(0, 0, 0));
         ButtonAdd.setText("Add");
@@ -67,7 +95,7 @@ public class Main extends javax.swing.JFrame {
                 ButtonAddActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 117, 48));
+        jPanel1.add(ButtonAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 117, 48));
 
         ButtonDelete.setForeground(new java.awt.Color(0, 0, 0));
         ButtonDelete.setText("Delete");
@@ -76,7 +104,7 @@ public class Main extends javax.swing.JFrame {
                 ButtonDeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 117, 48));
+        jPanel1.add(ButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 117, 48));
 
         ButtonLoad.setForeground(new java.awt.Color(0, 0, 0));
         ButtonLoad.setText("Load");
@@ -85,7 +113,7 @@ public class Main extends javax.swing.JFrame {
                 ButtonLoadActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 117, 48));
+        jPanel1.add(ButtonLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 117, 48));
 
         ButtonSimulate.setForeground(new java.awt.Color(0, 0, 0));
         ButtonSimulate.setText("Simulate");
@@ -94,32 +122,32 @@ public class Main extends javax.swing.JFrame {
                 ButtonSimulateActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonSimulate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 117, 48));
+        jPanel1.add(ButtonSimulate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 117, 48));
 
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Add cities:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Start simulation:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Load graph:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
         TITULO_Principal.setText("Choose an option:");
         jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
-        jLabel14.setText("Gabriel Flores");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 330));
+        background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
+        background.setText("Gabriel Flores");
+        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 330));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 350));
 
@@ -187,11 +215,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton ButtonLoad;
     private javax.swing.JButton ButtonSimulate;
     private javax.swing.JLabel TITULO_Principal;
+    private javax.swing.JLabel add_icon;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel check_icon;
+    private javax.swing.JLabel city_icon;
+    private javax.swing.JLabel city_icon1;
+    private javax.swing.JLabel cross_icon;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel load_icon;
+    private javax.swing.JLabel start_icon;
     // End of variables declaration//GEN-END:variables
 }

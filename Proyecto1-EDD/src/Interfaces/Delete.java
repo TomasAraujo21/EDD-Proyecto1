@@ -26,20 +26,28 @@ public class Delete extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cross_icon = new javax.swing.JLabel();
+        city_icon = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         back3 = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         input_delete = new javax.swing.JTextField();
         TITULO_Principal = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cross_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cross.png"))); // NOI18N
+        getContentPane().add(cross_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 30, 30));
+
+        city_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cities.png"))); // NOI18N
+        getContentPane().add(city_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 60, 60));
+
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Amount of cities you want to delete:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         back3.setForeground(new java.awt.Color(0, 0, 0));
         back3.setText("Back");
@@ -57,7 +65,7 @@ public class Delete extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 102, 52));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 102, 52));
 
         input_delete.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         input_delete.setForeground(new java.awt.Color(0, 0, 0));
@@ -66,17 +74,17 @@ public class Delete extends javax.swing.JFrame {
                 input_deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(input_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 47, -1));
+        getContentPane().add(input_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 47, -1));
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
         TITULO_Principal.setText("Delete cities");
-        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
-        jLabel14.setText("Gabriel Flores");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 470));
+        background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
+        background.setText("Gabriel Flores");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,9 +140,11 @@ public class Delete extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TITULO_Principal;
     private javax.swing.JButton back3;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel city_icon;
+    private javax.swing.JLabel cross_icon;
     private javax.swing.JButton delete;
     private javax.swing.JTextField input_delete;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
     // End of variables declaration//GEN-END:variables
 }

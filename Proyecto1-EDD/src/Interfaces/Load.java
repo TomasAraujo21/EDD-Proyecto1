@@ -9,13 +9,13 @@ package Interfaces;
  * @author 58414
  */
 
-import static Interfaces.Main.graph;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 public class Load extends javax.swing.JFrame {
 
@@ -30,7 +30,8 @@ public class Load extends javax.swing.JFrame {
         this.v1 = v1;
         v1.setVisible(false);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);         
+        this.setResizable(false);    
+
     }
     
 
@@ -44,6 +45,8 @@ public class Load extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        check_icon = new javax.swing.JLabel();
+        load_icon = new javax.swing.JLabel();
         TITULO_Principal = new javax.swing.JLabel();
         route = new javax.swing.JTextField();
         search = new javax.swing.JButton();
@@ -51,20 +54,26 @@ public class Load extends javax.swing.JFrame {
         LoadFile = new javax.swing.JTextArea();
         back = new javax.swing.JButton();
         save = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        check_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkmark.png"))); // NOI18N
+        jPanel1.add(check_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 30, 30));
+
+        load_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/file.png"))); // NOI18N
+        jPanel1.add(load_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 60, 60));
+
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
         TITULO_Principal.setText("Load graph");
-        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         route.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(route, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 290, -1));
+        jPanel1.add(route, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 290, -1));
 
         search.setForeground(new java.awt.Color(0, 0, 0));
         search.setText("Search archive");
@@ -73,14 +82,14 @@ public class Load extends javax.swing.JFrame {
                 searchActionPerformed(evt);
             }
         });
-        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 110, -1));
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 110, -1));
 
         LoadFile.setColumns(20);
         LoadFile.setForeground(new java.awt.Color(0, 0, 0));
         LoadFile.setRows(5);
         jScrollPane1.setViewportView(LoadFile);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 288, 178));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 288, 178));
 
         back.setForeground(new java.awt.Color(0, 0, 0));
         back.setText("Back");
@@ -89,7 +98,7 @@ public class Load extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
-        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 40));
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 80, 30));
 
         save.setForeground(new java.awt.Color(0, 0, 0));
         save.setText("Save graph");
@@ -98,12 +107,12 @@ public class Load extends javax.swing.JFrame {
                 saveActionPerformed(evt);
             }
         });
-        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 110, -1));
+        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 110, -1));
 
-        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
-        jLabel14.setText("Gabriel Flores");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 370));
+        background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
+        background.setText("Gabriel Flores");
+        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 370));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 340));
 
@@ -202,9 +211,11 @@ public class Load extends javax.swing.JFrame {
     private javax.swing.JTextArea LoadFile;
     private javax.swing.JLabel TITULO_Principal;
     private javax.swing.JButton back;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel check_icon;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel load_icon;
     private javax.swing.JTextField route;
     private javax.swing.JButton save;
     private javax.swing.JButton search;

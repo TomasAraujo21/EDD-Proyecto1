@@ -40,6 +40,8 @@ public class Add extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        add_icon = new javax.swing.JLabel();
+        city_icon = new javax.swing.JLabel();
         input_vertex = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         add_vertex = new javax.swing.JButton();
@@ -50,12 +52,18 @@ public class Add extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         TITULO_Principal = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        add_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus.png"))); // NOI18N
+        jPanel1.add(add_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 30, 30));
+
+        city_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cities.png"))); // NOI18N
+        jPanel1.add(city_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         input_vertex.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(input_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, -1));
@@ -113,12 +121,12 @@ public class Add extends javax.swing.JFrame {
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
         TITULO_Principal.setText("Add cities");
-        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
+        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoDePantalla.jpg"))); // NOI18N
-        jLabel14.setText("Gabriel Flores");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 320));
+        background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
+        background.setText("Gabriel Flores");
+        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 320));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 320));
 
@@ -195,14 +203,16 @@ public class Add extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TITULO_Principal;
+    private javax.swing.JLabel add_icon;
     private javax.swing.JButton add_vertex;
     private javax.swing.JButton agg_arista;
     private javax.swing.JButton back;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel city_icon;
     private javax.swing.JTextField input_destiny;
     private javax.swing.JTextField input_vertex;
     private javax.swing.JTextField input_weight;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
