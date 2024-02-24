@@ -197,6 +197,32 @@ public class List {
         }
     }
     
+    public String transform(){
+        if(!isEmpty()){
+            Node aux = pfirst;
+            String expression = "";
+            for (int i = 0; i < size; i++) {
+                expression += aux.gettInfo().toString() + "\n";
+                aux = aux.getpNext();
+            }
+            return expression;
+        }
+        return "Lista vacia";
+    }
+    
+    public String transformCity(){
+        if(!isEmpty()){
+            Node aux = pfirst;
+            String expression = "";
+            for (int i = 0; i < size; i++) {
+                expression += aux.gettInfo().toString() + ", ";
+                aux = aux.getpNext();
+            }
+            return expression;
+        }
+        return "Lista vacia";
+    }
+    
     public void clear(){
         pfirst = null;
         size = 0;

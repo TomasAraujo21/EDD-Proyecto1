@@ -18,12 +18,14 @@ public class SystemAnt {
     private double q;
     private double alpha;
     private double beta;
+    private double rho;
     private Vertex startCity;
     private Vertex endCity;
     private Graph graph;
-    private String optimalRoute;
+    private String optimalRouteS;
     private String pheromones;
     private double optimalDistance;
+    private List optimalRoute;
     private List history;       // EN EL HISTORIAL GUARDO LOS OBJETOS DE TIPO OPTIMO
     private List tempHistory;
     private int cycles;
@@ -35,12 +37,14 @@ public class SystemAnt {
         this.startCity = startCity;
         this.endCity = endCity;
         this.graph = graph;
-        this.optimalRoute = "";
+        this.optimalRouteS = "";
         this.pheromones = "";
         this.optimalDistance = 0;
         this.history = new List();
         this.tempHistory = new List();
         this.cycles = cycles;
+        this.optimalRoute = new List();
+        this.rho = rho;
     }
 
     // HACER TODOS LOS GETTER Y SETTER PARA LOS PARAMETROS
@@ -142,18 +146,47 @@ public class SystemAnt {
         this.graph = graph;
     }
 
-    /**
-     * @return the optimalRoute
-     */
-    public String getOptimalRoute() {
+    public double getQ() {
+        return q;
+    }
+
+    public void setQ(double q) {
+        this.q = q;
+    }
+
+    public String getOptimalRouteS() {
+        return optimalRouteS;
+    }
+
+    public void setOptimalRouteS(String optimalRouteS) {
+        this.optimalRouteS = optimalRouteS;
+    }
+
+    public List getOptimalRoute() {
         return optimalRoute;
     }
 
-    /**
-     * @param optimalRoute the optimalRoute to set
-     */
-    public void setOptimalRoute(String optimalRoute) {
+    public void setOptimalRoute(List optimalRoute) {
         this.optimalRoute = optimalRoute;
+    }
+
+    public List getTempHistory() {
+        return tempHistory;
+    }
+
+    public void setTempHistory(List tempHistory) {
+        this.tempHistory = tempHistory;
+    }
+
+    public int getCycles() {
+        return cycles;
+    }
+
+    /**
+     * @return the optimalRoute
+     */
+    public void setCycles(int cycles) {    
+        this.cycles = cycles;
     }
 
     /**
@@ -227,11 +260,11 @@ public class SystemAnt {
         }
         if (optimalDistance == 0) {
             this.setOptimalDistance(ant.getDistance());
-            this.setOptimalRoute(ant.getPastCities().toString());
+            this.setOptimalRouteS(ant.getPastCities().toString());
         }else{
             if (ant.getDistance() < this.getOptimalDistance() && ant.getCity().getNumCity() == this.startCity.getNumCity()) {
                 this.setOptimalDistance(ant.getDistance());
-                this.setOptimalRoute(ant.getPastCities().toString());
+                this.setOptimalRouteS(ant.getPastCities().toString());
             }
         }
     }
@@ -276,7 +309,7 @@ public class SystemAnt {
         double sumOdds = 0.0;
         for (int i = 0; i < possibleCities.getSize(); i++) {
             Edge edge = (Edge) possibleCities.getValor(i);
-            double tau = Math.pow(edge.getFermonas(), this.alpha);
+            double tau = Math.pow(edge.getPheromones(), this.alpha);
             double eta = Math.pow(q / edge.getDistance(), this.beta);
             double chances = tau * eta;
             odds.addEnd(chances);
