@@ -9,7 +9,7 @@ package Functions;
  * @author Gabriel Flores
  * 
  */
-public class Helpers {
+public class helpers {
     private boolean isNumber(String num){
         return num.matches("[0-9]*");
     }
@@ -46,8 +46,10 @@ public class Helpers {
     }
     
     public boolean validateRho(String number){
-        if(this.validateDecimalNumbers(number) != -1){
-            //validar que ese numero sea mayor o igual que cero y menor que 1
+        if(validateDecimalNumbers(number) != -1){
+            if(Integer.parseInt(number) == 0 && Integer.parseInt(number) < 1) {
+                return true;
+            }
         }
         return false;
     }

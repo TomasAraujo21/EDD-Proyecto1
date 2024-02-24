@@ -236,8 +236,15 @@ public class SystemAnt {
             for (int j = 0; j < ants.getSize(); j++) {
                 Ant ant = new Ant();
                 fullCycle(ant);
+                HistoryTemp temp = new HistoryTemp(j, ant.getPastCities().toString(), Double.toString(ant.getDistance()));
+                tempHistory.addEnd(temp);
             }
+            String cycle = "Ciclo" + (i +1 );
+            History hist = new History(cycle, tempHistory.toString(), optimalRoute.transformCity(), optimalDistance);
+            history.addEnd(hist);
+            evaporatePheromones();
             resetAnts();
+            tempHistory.clear();
         }
 
     }
@@ -338,11 +345,17 @@ public class SystemAnt {
     }
 
     public void updatePheromones() {
-
+        
     }
 
     public void evaporatePheromones() {
-
+        for (int i = 0; i < graph.getCities().getSize(); i++) {
+            Vertex currentCity = (Vertex) graph.getCities().getValor(i);
+            for (int j = 0; j < currentCity.getListAdy().getSize(); j++) {
+                Edge currentEdge = (Edge) currentCity.getListAdy().getValor(j);
+                double evppheromones = (1-rho)*currentEdge.getPheromones();
+                currentEdge.setPheromones(evppheromones);
+            }
+        }
     }
- 
 }
