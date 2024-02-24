@@ -9,19 +9,16 @@ package EDD;
  * @author Gabriel Flores
  */
 public class List {
-    //Atributos de la clase list.
+    
     private Node pfirst;
     private int size;
-
     
-    //Constructor de la clase list.
     public List() {
         this.pfirst = null;
         this.size = 0;
     }
     
-    //GETTERS Y SETTERS de la clase List.
-    
+
     public Node getPfirst() {
         return pfirst;
     }
@@ -38,12 +35,20 @@ public class List {
         this.size = size;
     }
     
-    //Primitiva para verificar si la lista se encuentra vacia o no.
+    /**
+     * Metodo para indicar si la lista esta vacia o no.
+     * @return
+     *      Retorna null si la lista se encuentra vacia.
+     */
     public boolean isEmpty(){
         return this.pfirst == null;
     }
     
-    //Primitiva para insertar al inicio de la lista.
+    /**
+     * Metodo para agregar al inicio de la lista.
+     * @param dato
+     *      Objeto que se va a agregar al inicio de la lista.
+     */
     public void addStart(Object dato){
         Node pnew = new Node();
         pnew.settInfo(dato);       
@@ -56,7 +61,11 @@ public class List {
         size ++;
     }
     
-    //Primitiva para insertar al final de la lista.
+    /**
+     * Metodo para agregar al final de la lista.
+     * @param dato 
+     *      Objeto que se va a agregar al final de la lista.
+     */
     public void addEnd(Object dato){
         Node pNew = new Node();
         pNew.settInfo(dato);
@@ -72,7 +81,13 @@ public class List {
         size++;
     }
     
-    //Primitiva insetar por posicion indicada.
+    /**
+     * Metodo para agregar dependiendo de la posicion que se pase por parametro.
+     * @param position
+     *      Posicion de la lista.
+     * @param dato 
+     *      Objeto que se va a agregar dependiendo de la posicion de la lista.
+     */
     public void addByPosition(int position,Object dato){
         if (position >= 0 && position <= size){
             Node pNew = new Node();
@@ -101,7 +116,13 @@ public class List {
         }
     }
     
-    //Primitiva obtener el valor dentro d eun nodo.
+    /**
+     * Metodo para obtener el valor o dato que se encuentra en un indice.
+     * @param index
+     *      Indice del elemento del dato que se desa obtener.
+     * @return
+     *      Retorna la informacion del elemento.
+     */
     public Object getValor(int index) {
         if (isEmpty()) {
             return -1;
@@ -116,7 +137,9 @@ public class List {
         }
     }
     
-    //Primitiva mostrar los elementos de una lista.
+    /**
+     * Metodo para mostrar el dato de cada elemento de la lista.
+     */
     public void show() {
         if(!isEmpty()){
             Node pointer = getPfirst();
@@ -129,7 +152,12 @@ public class List {
         }
     }
     
-    //Primitva para eliminar al inicio de una lista simple.
+    /**
+     * Metodo para eliminar el primer elemento de la lista.
+     * 
+     * @return 
+     *      Retorna true si el elemento fue eliminado exitosamente.
+     */
     public boolean deleteStart(){
         if(!isEmpty()){
             pfirst = pfirst.getpNext();
