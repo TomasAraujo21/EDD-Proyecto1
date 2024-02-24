@@ -49,6 +49,7 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="30" y="100" width="-1" height="-1"/>
+<<<<<<< Updated upstream
             </Constraint>
           </Constraints>
         </Component>
@@ -81,6 +82,8 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="280" y="120" width="-1" height="-1"/>
+=======
+>>>>>>> Stashed changes
             </Constraint>
           </Constraints>
         </Component>
@@ -120,6 +123,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< Updated upstream
               <AbsoluteConstraints x="30" y="160" width="130" height="-1"/>
             </Constraint>
           </Constraints>
@@ -137,6 +141,9 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="340" y="200" width="150" height="-1"/>
+=======
+              <AbsoluteConstraints x="370" y="100" width="130" height="-1"/>
+>>>>>>> Stashed changes
             </Constraint>
           </Constraints>
         </Component>
@@ -151,6 +158,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< Updated upstream
               <AbsoluteConstraints x="30" y="130" width="200" height="20"/>
             </Constraint>
           </Constraints>
@@ -176,6 +184,9 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="340" y="120" width="160" height="-1"/>
+=======
+              <AbsoluteConstraints x="190" y="100" width="160" height="-1"/>
+>>>>>>> Stashed changes
             </Constraint>
           </Constraints>
         </Component>
@@ -184,7 +195,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Finalizar"/>
+            <Property name="text" type="java.lang.String" value="Siguiente"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="finishActionPerformed"/>
