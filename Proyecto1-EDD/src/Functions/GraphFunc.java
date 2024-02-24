@@ -103,7 +103,7 @@ public class GraphFunc {
         return null;
     }
     
-    public void EliminarCiudad(Graph grafo, int numVertex){
+    public void deleteCity(Graph grafo, int numVertex){
         for (int i = 0; i < grafo.getCities().getSize(); i++) {
             Vertex currentVertex = (Vertex) grafo.getCities().getValor(i);
             for (int j = 0; j < currentVertex.getListAdy().getSize(); j++) {

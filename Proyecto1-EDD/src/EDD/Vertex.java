@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author GAbriel Flores
+ * @author Gabriel Flores
  *
  */
 public class Vertex {
@@ -76,6 +76,16 @@ public class Vertex {
             return 0;
         }
     }
+    
+    public Edge findEdge2(int numCity){
+        for (int i = 0; i < listAdy.getSize(); i++) {
+            Edge edgeAux = (Edge) listAdy.getValor(i);
+            if(edgeAux.getFinalCity().getNumCity() == numCity){
+                return edgeAux;
+            }
+        }
+        return null;
+    }
 
     public int findEdgeIndex(Edge edge) {
         if (edge.getHomeCity().getNumCity() == numCity) {
@@ -100,4 +110,11 @@ public class Vertex {
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return  "Ciudad: " + numCity ;
+    }
+    
+    
 }

@@ -12,9 +12,16 @@ public class Edge {
     private Vertex homeCity;
     private Vertex finalCity;
     private double distance;
-    private double fermonas;
+    private double pheromones;
     
     //Constructor de la clase Edge.
+
+    public Edge(Vertex homeCity, Vertex finalCity, double distance, double pheromones) {
+        this.homeCity = homeCity;
+        this.finalCity = finalCity;
+        this.distance = distance;
+        this.pheromones = 0;
+    }
 
     public Edge(Vertex homeCity, Vertex finalCity, double distance) {
         this.homeCity = homeCity;
@@ -22,14 +29,7 @@ public class Edge {
         this.distance = distance;
     }
     
-    //Constructor con feromonas
-    public Edge(Vertex homeCity, Vertex finalCity, double distance, double feromonas) {
-        this.homeCity = homeCity;
-        this.finalCity = finalCity;
-        this.distance = distance;
-        this.fermonas = feromonas;
-    }
-    //Getters y Setters de la clase Edge.
+    
 
     public Vertex getHomeCity() {
         return homeCity;
@@ -55,13 +55,14 @@ public class Edge {
         this.distance = distance;
     }
 
-    public double getFermonas() {
-        return fermonas;
+    public double getPheromones() {
+        return pheromones;
     }
 
-    public void setFermonas(double fermonas) {
-        this.fermonas = fermonas;
+    public void setPheromones(double pheromones) {
+        this.pheromones = pheromones;
     }
+
     
     
     

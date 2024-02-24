@@ -44,7 +44,7 @@ public class Graph {
                 if (vertexAux.getNumCity() == edge.getHomeCity().getNumCity()) {
                     vertexAux.getListAdy().addEnd(edge);
                 } else if (vertexAux.getNumCity() == edge.getFinalCity().getNumCity()) {
-                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(), edge.getDistance());
+                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(), edge.getDistance(),edge.getPheromones());
                     vertexAux.getListAdy().addEnd(edgeAux);
                 } else {
                     JOptionPane.showConfirmDialog(null, "La arista ya se encuentra en el grafo!");
@@ -107,7 +107,7 @@ public class Graph {
                 if (vertexAux.getNumCity() == edge.getHomeCity().getNumCity()) {
                     vertexAux.getListAdy().deleteByReference(vertexAux.getNumCity());
                 } else if (vertexAux.getNumCity() == edge.getFinalCity().getNumCity()) {
-                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(), edge.getDistance());
+                    Edge edgeAux = new Edge(vertexAux, edge.getHomeCity(), edge.getDistance(),edge.getPheromones());
                     vertexAux.getListAdy().deleteByReference(edgeAux);
                 } else {
                     JOptionPane.showConfirmDialog(null, "La arista no existe en el grafo!");
@@ -156,7 +156,7 @@ public class Graph {
             for (int j = 0; j < vertexAux.getListAdy().getSize(); j++) {
                 Edge edgeAux = (Edge) vertexAux.getListAdy().getValor(j);
                 if (edgeAux.getFinalCity().getNumCity() > vertexAux.getNumCity()) {
-                    sb.append(edgeAux.getHomeCity().getNumCity()).append(",").append(edgeAux.getFinalCity().getNumCity()).append(",").append(edgeAux.getDistance()).append(',').append(edgeAux.getFermonas()).append("\n");
+                    sb.append(edgeAux.getHomeCity().getNumCity()).append(",").append(edgeAux.getFinalCity().getNumCity()).append(",").append(edgeAux.getDistance()).append(',').append(edgeAux.getPheromones()).append("\n");
 //                    sb.append(arista.getOrigen().getNumCiudad()).append(" ,").append(arista.getDestino().getNumCiudad()).append(" ,").append(arista.getDistancia()).append("\n")
                 }
             }

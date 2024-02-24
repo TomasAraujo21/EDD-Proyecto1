@@ -7,25 +7,30 @@ import EDD.*;
 import Classes.*;
 /**
  *
- * @author tomasaraujo
+ * @author Gabriel Flores
  */
 public class SystemFunc {
     // AQUI VA LA FUNCION DE INICIALIZAR FEROMONAS
     
     
-//    public List startPheromones(Graph graph) {
-//        double pheromones = 1/graph.getNumVertices();
-//        for (int i = 0; i < graph.getNumVertices(); i++) {
-//        }
-//    }
+    public void startPheromones(Graph graph) {
+        double Initialpheromones = 1/graph.getCities().getSize();
+        for (int i = 0; i < graph.getCities().getSize(); i++) {
+            Vertex city = (Vertex) graph.getCities().getValor(i);
+            for (int j = 0; j < city.getListAdy().getSize(); j++) {
+                Edge edge = (Edge) city.getListAdy().getValor(j);
+                edge.setPheromones(Initialpheromones);
+            }
+        }
+    }
     
-    public List Ants(int num, Vertex city) {
+    public List startAnts(int num, Vertex city) {
         //  ESTO REPRESENTA LA CANTIDAD DE HORMIGAS QUE DIJO EL USUARIO QUE QUIERE EN EL SISTEMA
         List ants = new List();
         for (int i = 0; i < num; i++) {
-            Ant h = new Ant();
-            h.setCity(city);
-            ants.addEnd(h);
+            Ant ant = new Ant();
+            ant.setCity(city);
+            ants.addEnd(ant);
         }
         return ants;
     }
