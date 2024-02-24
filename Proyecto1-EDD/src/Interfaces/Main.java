@@ -160,13 +160,13 @@ public class Main extends javax.swing.JFrame {
     private void simulateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simulateActionPerformed
         Simulate simulate = new Simulate(this);
         this.setVisible(false);
-        simulate.setVisible(true);// TODO add your handling code here:
+        simulate.setVisible(true);
     }//GEN-LAST:event_simulateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         Delete delete = new Delete(this);
         this.setVisible(false);
-        delete.setVisible(true);        // TODO add your handling code here:
+        delete.setVisible(true);
     }//GEN-LAST:event_deleteActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed

@@ -96,8 +96,8 @@ public class Delete extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteActionPerformed
     /**
-     *  Te devuelve al menú principal (Main).
-     * @param evt Acción del botón Volver
+     *  Cierra la ventana actual y abre Main
+     * @param evt El evento de acción desencadenado por el botón "Volver"
      */
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         this.setVisible(false);

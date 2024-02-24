@@ -153,8 +153,8 @@ public class Load extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchActionPerformed
     /**
-     *  Te devuelve al menú principal (Main).
-     * @param evt Acción del botón Volver
+     *  Cierra la ventana actual y abre Main
+     * @param evt El evento de acción desencadenado por el botón "Volver"
      */
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         this.setVisible(false);

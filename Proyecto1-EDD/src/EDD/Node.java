@@ -9,16 +9,22 @@ package EDD;
  * @author GAbriel Flores
  */
 public class Node {
-    //Atributos de la clase Node.
+    
     private Object tInfo;
     private Node  pNext;
 
-    //Constructor de la clase Node.
     public Node() {
         this.tInfo = null;
         this.pNext = null;
     }
-
+    /**
+     * Creacion del constructor de la clase 'Node'
+     * @param tInfo
+     *      Indica el atributo que se le esta pasando al Nodo.
+     * @param pNext 
+     *      Indica el apuntador hacia el siguiente Nodo.
+     */
+    
     public Node(Object tInfo, Node pNext) {
         this.tInfo = tInfo;
         this.pNext = pNext;
@@ -28,10 +34,6 @@ public class Node {
         this.tInfo = tInfo;
         this.pNext = null;
     }
-    
-    
-
-    //GETTERS Y SETTERS de la clase Node.
     public Object gettInfo() {
         return tInfo;
     }

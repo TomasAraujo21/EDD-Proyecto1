@@ -95,8 +95,8 @@ public class Simulate2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     *  Finaliza el proceso y te devuelve al menú principal (Main).
-     * @param evt Acción del boton finish
+     *  Cierra la ventana actual y abre Main
+     * @param evt El evento de acción desencadenado por el botón "Finalizar"
      */
     private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
         this.setVisible(false);
