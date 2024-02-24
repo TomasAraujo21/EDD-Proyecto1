@@ -10,8 +10,6 @@ import Classes.*;
  * @author Gabriel Flores
  */
 public class SystemFunc {
-    // AQUI VA LA FUNCION DE INICIALIZAR FEROMONAS
-    
     
     public void startPheromones(Graph graph) {
         double Initialpheromones = 1/graph.getCities().getSize();
