@@ -149,6 +149,7 @@ public class Load extends javax.swing.JFrame {
                 e1.printStackTrace();
             }
         }else{
+            // Muestra un mensaje de error si no se ha escogido un archivo válido.
             JOptionPane.showMessageDialog(null, "No se escogió un archivo válido");
         }
     }//GEN-LAST:event_searchActionPerformed

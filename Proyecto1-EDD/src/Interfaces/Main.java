@@ -150,25 +150,37 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     *  Cierra la ventana actual y abre Load
+     * @param evt El evento de acción desencadenado por el botón "Cargar"
+     */
     private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
         Load load = new Load(this);
         this.setVisible(false);
         load.setVisible(true);
     }//GEN-LAST:event_loadActionPerformed
-
+    /**
+     *  Cierra la ventana actual y abre Simulate
+     * @param evt El evento de acción desencadenado por el botón "Simular"
+     */
     private void simulateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simulateActionPerformed
         Simulate simulate = new Simulate(this);
         this.setVisible(false);
         simulate.setVisible(true);
     }//GEN-LAST:event_simulateActionPerformed
-
+    /**
+     *  Cierra la ventana actual y abre Delete
+     * @param evt El evento de acción desencadenado por el botón "Eliminar"
+     */
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         Delete delete = new Delete(this);
         this.setVisible(false);
         delete.setVisible(true);
     }//GEN-LAST:event_deleteActionPerformed
-
+    /**
+     *  Cierra la ventana actual y abre Add
+     * @param evt El evento de acción desencadenado por el botón "Añadir"
+     */
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         Add add = new Add(this);
         this.setVisible(false);

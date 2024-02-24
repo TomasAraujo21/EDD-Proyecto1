@@ -142,7 +142,6 @@ public class Welcome extends javax.swing.JFrame {
     /**
     * Muestra un mensaje indicando que debe de cargar un grafo antes de comenzar.
     * Cierra la ventana actual y abre Load.
-    *
     * @param evt El evento de acción desencadenado por el botón "Siguiente"
     */
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
