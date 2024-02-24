@@ -148,7 +148,7 @@ public class Add extends javax.swing.JFrame {
         
         if(graph.findCity(vertex2)){
             Edge edge = new Edge(graph.findCity2(Integer.parseInt(input_vertex.getText())), graph.findCity2(num), weight);
-            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().InsertarFinal(edge);
+            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().addEnd(edge);
             JOptionPane.showMessageDialog(null, "Arista y peso añadido con éxito");
         }else{
             JOptionPane.showMessageDialog(null, "No se puede añadir la arista y el peso");

@@ -70,6 +70,11 @@ public class Add2 extends javax.swing.JFrame {
         jPanel1.add(agg_arista, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 130, -1));
 
         input_weight.setForeground(new java.awt.Color(0, 0, 0));
+        input_weight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_weightActionPerformed(evt);
+            }
+        });
         jPanel1.add(input_weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -122,6 +127,10 @@ public class Add2 extends javax.swing.JFrame {
         Main window1 = new Main(b);
         window1.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void input_weightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_weightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_weightActionPerformed
 
     /**
      * @param args the command line arguments
