@@ -344,8 +344,15 @@ public class SystemAnt {
         return finalEdge.getFinalCity();
     }
 
-    public void updatePheromones() {
-        
+    public void updatePheromones(Ant ant) {
+        double cont = q/ant.getDistance();
+        for (int i = 0; i < ant.getPastCities().getSize()-1; i++) {
+            Vertex city = (Vertex) ant.getPastCities().getValor(i);
+            Vertex nextCity = (Vertex) ant.getPastCities().getValor(i+1);
+            
+            double pheromones = cont + city.findEdge2(nextCity.getNumCity()).getPheromones();
+            city.findEdge2(nextCity.getNumCity()).setPheromones(pheromones);
+        }
     }
 
     public void evaporatePheromones() {
