@@ -15,6 +15,9 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import Functions.GraphFunc;
+import static Interfaces.Main.graph;
+
 
 
 public class Load extends javax.swing.JFrame {
@@ -166,10 +169,10 @@ public class Load extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         //System.out.println(Archivo_Cargado.getText());
-
-        //        funcion_txt func = new funcion_txt();
-        //        grafo = func.convertString(Archivo_Cargado.getText());
-        //        System.out.println(grafo.toString());
+        GraphFunc func = new GraphFunc();
+        graph = func.convertString(LoadFile.getText());
+        System.out.println(graph.toString());
+       
     }//GEN-LAST:event_saveActionPerformed
 
     /**

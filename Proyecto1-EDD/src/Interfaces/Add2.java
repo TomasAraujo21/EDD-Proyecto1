@@ -93,8 +93,8 @@ public class Add2 extends javax.swing.JFrame {
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
-        TITULO_Principal.setText("Añadir ciudad");
-        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        TITULO_Principal.setText("Añadir caminos");
+        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
@@ -107,10 +107,8 @@ public class Add2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agg_aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agg_aristaActionPerformed
-        int num = Integer.parseInt(input_destiny.getText());
-        Vertex vertex2 = new Vertex(num);
-        int weight = Integer.parseInt(input_destiny.getText());
-
+        double weight = Double.parseDouble(input_weight.getText());
+       
         if(graph.findCity(vertex2)){
             Edge edge = new Edge(graph.findCity2(Integer.parseInt(input_vertex.getText())), graph.findCity2(num), weight);
             graph.findcity2(Integer.parseInt(input_vertex.getText())).getListAdy().InsertarFinal(edge);
