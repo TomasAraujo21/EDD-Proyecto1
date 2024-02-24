@@ -69,20 +69,20 @@ public class Load extends javax.swing.JFrame {
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
-        TITULO_Principal.setText("Load graph");
-        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        TITULO_Principal.setText("Cargar grafo");
+        jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         route.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(route, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 290, -1));
 
         search.setForeground(new java.awt.Color(0, 0, 0));
-        search.setText("Search archive");
+        search.setText("Buscar");
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchActionPerformed(evt);
             }
         });
-        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 110, -1));
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 120, -1));
 
         LoadFile.setColumns(20);
         LoadFile.setForeground(new java.awt.Color(0, 0, 0));
@@ -92,7 +92,7 @@ public class Load extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 288, 178));
 
         back.setForeground(new java.awt.Color(0, 0, 0));
-        back.setText("Back");
+        back.setText("Volver");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
@@ -101,7 +101,7 @@ public class Load extends javax.swing.JFrame {
         jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 80, 30));
 
         save.setForeground(new java.awt.Color(0, 0, 0));
-        save.setText("Save graph");
+        save.setText("Guardar");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
@@ -153,7 +153,7 @@ public class Load extends javax.swing.JFrame {
                 e1.printStackTrace();
             }
         }else{
-            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo.");
+            JOptionPane.showMessageDialog(null, "No se escogió un archivo válido");
         }
     }//GEN-LAST:event_searchActionPerformed
 

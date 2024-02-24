@@ -13,8 +13,15 @@ public class Delete extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public Delete() {
+    
+    public static Main v1;
+    
+    public Delete(Main v1) {
         initComponents();
+        this.v1 = v1;
+        v1.setVisible(false);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -39,33 +46,33 @@ public class Delete extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cross_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cross.png"))); // NOI18N
-        getContentPane().add(cross_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 30, 30));
+        getContentPane().add(cross_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 30, 30));
 
         city_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cities.png"))); // NOI18N
-        getContentPane().add(city_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 60, 60));
+        getContentPane().add(city_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 60, 60));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Amount of cities you want to delete:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jLabel1.setText("Cantidad de ciudades que deseas eliminar:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         back3.setForeground(new java.awt.Color(0, 0, 0));
-        back3.setText("Back");
+        back3.setText("Volver");
         back3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back3ActionPerformed(evt);
             }
         });
-        getContentPane().add(back3, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 372, 109, 51));
+        getContentPane().add(back3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 109, 51));
 
         delete.setForeground(new java.awt.Color(0, 0, 0));
-        delete.setText("Delete");
+        delete.setText("Eliminar");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 102, 52));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 102, 52));
 
         input_delete.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         input_delete.setForeground(new java.awt.Color(0, 0, 0));
@@ -74,12 +81,12 @@ public class Delete extends javax.swing.JFrame {
                 input_deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(input_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 47, -1));
+        getContentPane().add(input_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 47, -1));
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
-        TITULO_Principal.setText("Delete cities");
-        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+        TITULO_Principal.setText("Eliminar ciudad");
+        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
         background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
@@ -94,7 +101,10 @@ public class Delete extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteActionPerformed
 
     private void back3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back3ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Welcome b = new Welcome();
+        Main window1 = new Main(b);
+        window1.setVisible(true);
     }//GEN-LAST:event_back3ActionPerformed
 
     private void input_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_deleteActionPerformed
@@ -132,7 +142,7 @@ public class Delete extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Delete().setVisible(true);
+                new Delete(v1).setVisible(true);
             }
         });
     }

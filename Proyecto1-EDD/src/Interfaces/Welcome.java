@@ -51,47 +51,47 @@ public class Welcome extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         next.setForeground(new java.awt.Color(0, 0, 0));
-        next.setText("Next");
+        next.setText("Siguiente");
         next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextActionPerformed(evt);
             }
         });
-        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 394, 90, 40));
+        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 90, 40));
 
         check_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/team.png"))); // NOI18N
         getContentPane().add(check_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 80, 80));
 
         ant_colony1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/arrow.png"))); // NOI18N
-        getContentPane().add(ant_colony1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 120, 91));
+        getContentPane().add(ant_colony1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 120, 91));
 
         ant_colony.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/antcolony.png"))); // NOI18N
-        getContentPane().add(ant_colony, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 210, 161));
+        getContentPane().add(ant_colony, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 210, 161));
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
-        TITULO_Principal.setText("Welcome!");
-        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        TITULO_Principal.setText("Bienvenido!");
+        getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Press next to continue");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, 40));
+        jLabel2.setText("Presiona siguiente para continuar");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 280, 40));
 
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Welcome to our project about an Optimization");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 380, 40));
+        jLabel3.setText("Bienvenido a nuestro proyecto de algoritmo de optimización");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 570, 40));
 
-        jLabel4.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText(" algorithm based on the behavior of ant colonies.");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 420, 40));
+        jLabel4.setText("basado en el comportamiento de las colonias de hormigas.");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 540, 40));
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("You will be able to choose between:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 310, 40));
+        jLabel5.setText("Podrás elegir entre:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 310, 40));
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,28 +100,28 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("- Delete cities");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 130, 40));
+        jLabel7.setText("- Eliminar ciudad");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 150, 40));
 
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("- Load graph");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 120, 40));
+        jLabel8.setText("- Cargar grafo");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 120, 40));
 
         jLabel9.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("- Start simulation");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 160, 40));
+        jLabel9.setText("- Empezar simulación");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 190, 40));
 
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("- Add cities");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, 40));
+        jLabel10.setText("- Añadir ciudad");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 150, 40));
 
         jLabel11.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Made by:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 60, 40));
+        jLabel11.setText("Hecho por:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 80, 40));
 
         jLabel12.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
