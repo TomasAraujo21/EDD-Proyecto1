@@ -17,7 +17,16 @@ public class Ant {
     private List pastCities;
     private double distance;
     private boolean arrived; // este atributo es para chequear si la hormiga llego a la ciudad destino indicada para completar el ciclo
-
+    
+    /**
+     * Parametros necesarios para crear el constructor referente a la clase 'Ant'.
+     * @param city
+     *      Indica el vertice en donde se encuentra ubicada la hormiga.
+     * @param pastCities
+     *      Indica la lista de las ciudades visitadas por la hormiga.
+     * @param distance
+     *      Indica la distancia recorrida por la hormiga en un ciclo.
+     */
     public Ant(Vertex city, List pastCities, double distance) {
         this.city = city;
         this.pastCities = pastCities;
@@ -81,6 +90,11 @@ public class Ant {
         this.arrived = arrived;
     }
 
+    /**
+     * @
+     * @param city
+     * @return 
+     */
     public boolean visited(Vertex city) {
         // verificar que la ciudad que estoy pasando por parametro esta en la lista de ciudades recorridas de la hormiga
         Node pValue = new Node();
