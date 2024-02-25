@@ -12,10 +12,47 @@ package Functions;
 import EDD.*;
 import java.util.Arrays;
 
-
-
 public class GraphFunc {
+    
     public Graph convertString(String txt) {
+        
+        Graph graph = new Graph();
+        List cities = new List();
+        
+        String replaceCity = txt.replaceFirst("ciuadad", "Ω");
+        String replaceRoad = replaceCity.replaceFirst("arista", "Ω");
+        
+        String[] lines = replaceRoad.split("Ω");
+        
+        String txt_city = lines[1];
+        String[] cities2 = txt_city.split("\n");
+        
+        for (int i = 1; i < cities2.length; i++) {
+            String exit = cities2[i].replaceAll("\r", "");
+            Vertex currentVertex = new Vertex(Integer.parseInt(exit));
+            cities.addEnd(currentVertex);
+        }
+        
+        String edges_txt = lines[2];
+        String[] edges = edges_txt.split("\n");
+        
+        for (int i = 1; i < edges.length; i++) {
+            String[] parts = edges[i].split(",");
+            
+            String origin = parts[0].replaceAll("\r", "");
+            String destiny = parts[1].replaceAll("\r", "");
+            String weight = parts[2].replaceAll("\r", "");
+
+            Vertex city1 = searchVertex(Integer.parseInt(origin),cities);
+            Vertex city2 = searchVertex(Integer.parseInt(destiny),cities);
+            city1.getListAdy().addEnd(new Edge(city1, city2,Double.parseDouble(weight)));
+            city2.getListAdy().addEnd(new Edge(city2, city1,Double.parseDouble(weight)));
+        }
+        graph.setCities(cities);
+        return graph;
+    }
+
+    public Graph convertStringPh(String txt) {
         String[] lines = txt.split("\n");
         System.out.println(Arrays.toString(lines));
         Graph graph = new Graph();
@@ -31,72 +68,9 @@ public class GraphFunc {
 
             if (isVertex) {
                 if (!line.equals("ciudad")) {
-                    int vertex = Integer.parseInt(line);
-                    Vertex v = new Vertex(vertex);
-                    cities.addEnd(v);
-                }
-            } else {
-                String[] partes = line.split(",");
-                int origin = Integer.parseInt(partes[0]);
-                int destiny = Integer.parseInt(partes[1]);
-                double weight = Double.parseDouble(partes[2]);
-
-                Vertex city1 = searchVertex(origin, cities);
-                Vertex city2 = searchVertex(destiny, cities);
-                city1.getListAdy().addEnd(new Edge(city1, city2, weight));
-                city2.getListAdy().addEnd(new Edge(city2, city1, weight));
-            }
-        }
-
-        graph.setCities(cities);
-
-        return graph;
-    }
-//      public static void main(String[] args) {
-//        String filePath = "datos.txt"; // Cambia esto al path correcto de tu archivo
-//
-//        List<String> ciudadData = new ArrayList<>();
-//        List<String> aristasData = new ArrayList<>();
-//
-//        try {
-//            readData(filePath, ciudadData, aristasData);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        // Mostrar datos leídos
-//        System.out.println("Datos de la ciudad:");
-//        for (String line : ciudadData) {
-//            System.out.println(line);
-//        }
-//
-//        System.out.println("Aristas:");
-//        for (String line : aristasData) {
-//            System.out.println(line);
-//        }
-//    }
-
-   
-    
-    public Graph convertStringPh(String txt) {
-        String[] lines = txt.split("\n");
-        System.out.println(Arrays.toString(lines));
-        Graph graph = new Graph();
-        List vertices = new List();
-
-        boolean isVertex = true;
-
-        for (String line : lines) {
-            if (line.equals("aristas")) {
-                isVertex = false;
-                continue;
-            }
-
-            if (isVertex) {
-                if (!line.equals("ciudad")) {
                     int vertice = Integer.parseInt(line);
                     Vertex v = new Vertex(vertice);
-                    vertices.addEnd(v);
+                    cities.addEnd(v);
                 }
             } else {
                 String[] partes = line.split(",");
@@ -105,14 +79,14 @@ public class GraphFunc {
                 double weight = Double.parseDouble(partes[2]);
                 double phermones = Double.parseDouble(partes[3]);
 
-                Vertex city1 = searchVertex(origin, vertices);
-                Vertex city2 = searchVertex(destiny, vertices);
+                Vertex city1 = searchVertex(origin, cities);
+                Vertex city2 = searchVertex(destiny, cities);
                 city1.getListAdy().addEnd(new Edge(city1, city2, weight,phermones));
                 city2.getListAdy().addEnd(new Edge(city2, city1, weight,phermones));
             }
         }
 
-        graph.setCities(vertices);
+        graph.setCities(cities);
 
         return graph;
     }

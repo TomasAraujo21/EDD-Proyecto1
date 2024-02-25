@@ -99,7 +99,7 @@ public class Load extends javax.swing.JFrame {
         jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 80, 30));
 
         save.setForeground(new java.awt.Color(0, 0, 0));
-        save.setText("Guardar");
+        save.setText("Cargar");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
@@ -167,9 +167,11 @@ public class Load extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        GraphFunc func = new GraphFunc();
-        graph = func.convertString(LoadFile.getText());
-        System.out.println(graph.toString());
+        
+            GraphFunc func = new GraphFunc();
+            graph = func.convertString(LoadFile.getText());
+            System.out.println(graph.toString());
+        
     }//GEN-LAST:event_saveActionPerformed
 
     /**
