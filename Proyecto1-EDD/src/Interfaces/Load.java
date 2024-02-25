@@ -149,13 +149,12 @@ public class Load extends javax.swing.JFrame {
                 e1.printStackTrace();
             }
         }else{
-            // Muestra un mensaje de error si no se ha escogido un archivo válido.
             JOptionPane.showMessageDialog(null, "No se escogió un archivo válido");
         }
     }//GEN-LAST:event_searchActionPerformed
     /**
-     *  Cierra la ventana actual y abre Main
-     * @param evt El evento de acción desencadenado por el botón "Volver"
+     *  Te devuelve al menú principal (Main).
+     * @param evt Acción del botón Volver
      */
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         this.setVisible(false);

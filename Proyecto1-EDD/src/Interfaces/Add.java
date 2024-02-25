@@ -142,40 +142,23 @@ public class Add extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- *  Acción del botón Agregar arista y peso.
- *  Agrega una nueva Arista y Peso con el respectivo número al grafo.
- * @param evt El evento de acción desencadenado por el botón "Agregar arista y peso"
- */
+
     private void agg_aristaAndPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agg_aristaAndPesoActionPerformed
-        // Cambia input_arista a número
         int num = Integer.parseInt(input_arista.getText());
-        
-        // Crea un nuevo vertice con el número dado
         Vertex vertex2 = new Vertex(num);
-        
-        // Cambia input_weight a número
         int weight = Integer.parseInt(input_weight.getText());
         
-        // Chequea si el vértice ya existe en el gráfico
         if(graph.findCity(vertex2)){
-            
-            // Crea una nueva arista con el vértice dado y el peso
             Edge edge = new Edge(graph.findCity2(Integer.parseInt(input_vertex.getText())), graph.findCity2(num), weight);
-            
-            // Añade la arista a la lista de adyacencia del vértice.
-            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().InsertarFinal(edge);
-            
-            // Muestra un mensaje de éxito.
+            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().addEnd(edge);
             JOptionPane.showMessageDialog(null, "Arista y peso añadido con éxito");
         }else{
-            // Muestra un mensaje de error si no se puede añadir la arista y el peso.
             JOptionPane.showMessageDialog(null, "No se puede añadir la arista y el peso");
         }
     }//GEN-LAST:event_agg_aristaAndPesoActionPerformed
     /**
-     *  Cierra la ventana actual y abre Main
-     * @param evt El evento de acción desencadenado por el botón "Finalizar"
+     *  Finaliza el proceso y te devuelve al menú principal (Main).
+     * @param evt Acción del botón Finalizar
      */
     private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
         this.setVisible(false);
@@ -183,37 +166,25 @@ public class Add extends javax.swing.JFrame {
         Main window1 = new Main(b);
         window1.setVisible(true);
     }//GEN-LAST:event_finishActionPerformed
-    /**
-     *  Cierra la ventana actual y abre Main
-     * @param evt El evento de acción desencadenado por el botón "Finalizar"
-     */
+
     private void add_vertexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_vertexActionPerformed
         try {
-            // Cambia input_vertex a número.
             int num = Integer.parseInt(input_vertex.getText());
-            
-            // Crea un nuevo vertice con el número dado
             Vertex vertexAux = new Vertex(num);
-            
-            // Añade el vertice al grafo
             graph.addCity(vertexAux);
-            
-            // Muestra un mensaje de éxito
             JOptionPane.showMessageDialog(null, "Vértice creado con éxito");
-            
-            // Cierra la ventana actual y abre Main
             this.setVisible(false);
             Welcome b = new Welcome();
             Main window1 = new Main(b);
-            window1.setVisible(true);
+            Add window2 = new Add(window1);
+            window2.setVisible(true);
         } catch (NumberFormatException ex) {
-            // Muestra un mensaje de error si introduces un dato inválido.
             JOptionPane.showMessageDialog(null, "Introduzca un dato válido");
         }
     }//GEN-LAST:event_add_vertexActionPerformed
     /**
-     *  Cierra la ventana actual y abre Main.
-     * @param evt El evento de acción desencadenado por el botón "Volver"
+     *  Te devuelve al menú principal (Main).
+     * @param evt Acción del botón Volver
      */
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         this.setVisible(false);

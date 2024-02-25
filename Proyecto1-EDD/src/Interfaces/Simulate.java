@@ -137,8 +137,8 @@ public class Simulate extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     *  Cierra la ventana actual y abre Main
-     * @param evt El evento de acción desencadenado por el botón "Volver"
+     *  Te devuelve al menú principal (Main).
+     * @param evt Acción del botón Volver
      */
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         this.setVisible(false);
@@ -147,8 +147,8 @@ public class Simulate extends javax.swing.JFrame {
         window1.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
     /**
-     *  Cierra la ventana actual y abre Simulate2
-     * @param evt El evento de acción desencadenado por el botón "Iniciar"
+     *  Empieza la simulación y te envía a la interfaz Simulate2..
+     * @param evt Acción del botón Iniciar
      */
     private void runActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runActionPerformed
         this.setVisible(false);
