@@ -9,7 +9,7 @@ import Interfaces.Welcome;
 
 /**
  *
- * @author 58414
+ * @author Gabriel Flores
  */
 import EDD.*;
 public class Proyecto1EDD {

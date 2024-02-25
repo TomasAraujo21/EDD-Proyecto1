@@ -5,6 +5,7 @@ package Interfaces;
 import EDD.Edge;
 import EDD.Vertex;
 import EDD.Graph;
+import Functions.Helpers;
 import static Interfaces.Main.graph;
 import javax.swing.JOptionPane;
 
@@ -102,12 +103,27 @@ public class Add extends javax.swing.JFrame {
         jPanel1.add(agg_aristaAndPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 160, 40));
 
         input_vertex.setForeground(new java.awt.Color(0, 0, 0));
+        input_vertex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_vertexActionPerformed(evt);
+            }
+        });
         jPanel1.add(input_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 160, -1));
 
         input_arista.setForeground(new java.awt.Color(0, 0, 0));
+        input_arista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_aristaActionPerformed(evt);
+            }
+        });
         jPanel1.add(input_arista, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 160, -1));
 
         input_weight.setForeground(new java.awt.Color(0, 0, 0));
+        input_weight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_weightActionPerformed(evt);
+            }
+        });
         jPanel1.add(input_weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 160, -1));
 
         finish.setForeground(new java.awt.Color(0, 0, 0));
@@ -164,7 +180,7 @@ public class Add extends javax.swing.JFrame {
             Edge edge = new Edge(graph.findCity2(Integer.parseInt(input_vertex.getText())), graph.findCity2(num), weight);
             
             // Añade la arista a la lista de adyacencia del vértice.
-            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().InsertarFinal(edge);
+            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().addEnd(edge);
             
             // Muestra un mensaje de éxito.
             JOptionPane.showMessageDialog(null, "Arista y peso añadido con éxito");
@@ -221,6 +237,18 @@ public class Add extends javax.swing.JFrame {
         Main window1 = new Main(b);
         window1.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void input_weightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_weightActionPerformed
+        
+    }//GEN-LAST:event_input_weightActionPerformed
+
+    private void input_aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_aristaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_aristaActionPerformed
+
+    private void input_vertexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_vertexActionPerformed
+        
+    }//GEN-LAST:event_input_vertexActionPerformed
 
     /**
      * @param args Se muestra en pantalla la ventana Add
