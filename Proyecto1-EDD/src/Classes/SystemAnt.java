@@ -46,6 +46,8 @@ public class SystemAnt {
         this.optimalRoute = new List();
         this.rho = rho;
     }
+      
+  
 
     // HACER TODOS LOS GETTER Y SETTER PARA LOS PARAMETROS
     /**

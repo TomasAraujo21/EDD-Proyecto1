@@ -4,12 +4,18 @@ package Interfaces;
  * Interfaz en donde se va a mostrar por pantalla los datos del grafo cargados anteriormente. 
  * @author Christian
  */
+import EDD.Vertex;
+import static Interfaces.Main.graph;
+import javax.swing.DefaultComboBoxModel;
+
 public class Simulate extends javax.swing.JFrame {
 
     /**
      * Se crea la ventana Simulate.
      */
     public static Main v1;
+    DefaultComboBoxModel comboModel = new DefaultComboBoxModel(); 
+    DefaultComboBoxModel comboModel2 = new DefaultComboBoxModel(); 
     
     public Simulate(Main v1) {
         initComponents();
@@ -17,6 +23,11 @@ public class Simulate extends javax.swing.JFrame {
         v1.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        for (int i = 0; i < graph.numberCities(); i++) {
+            Vertex currentVertex = (Vertex)graph.getCities().getValor(i);
+            comboModel.addElement(currentVertex.getNumCity());
+            comboModel2.addElement(currentVertex.getNumCity());
+        }
     }
 
     /**

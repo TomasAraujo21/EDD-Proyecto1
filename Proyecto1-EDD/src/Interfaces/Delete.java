@@ -4,15 +4,17 @@ package Interfaces;
  * Interfaz en donde se va a poder eliminar una cantidad específica de ciudades.
  * @author Christian
  */
-
+import EDD.Vertex;
 import Functions.GraphFunc;
 import static Interfaces.Main.graph;
+import javax.swing.DefaultComboBoxModel;
+
 public class Delete extends javax.swing.JFrame {
 
     /**
      * Se crea la ventana Delete.
      */
-    
+    DefaultComboBoxModel modelCombo = new DefaultComboBoxModel(); 
     public static Main v1;
     
     public Delete(Main v1) {
@@ -21,6 +23,11 @@ public class Delete extends javax.swing.JFrame {
         v1.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        for (int i = 0; i < graph.numberCities(); i++) {
+            Vertex vertexAux = (Vertex) graph.getCities().getValor(i);
+            modelCombo.addElement(vertexAux.getNumCity());
+        }
     }
 
     /**
@@ -94,7 +101,7 @@ public class Delete extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_deleteActionPerformed
     /**
      *  Cierra la ventana actual y abre Main
@@ -108,9 +115,7 @@ public class Delete extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void comboBoxCitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCitiesActionPerformed
-        for (int i = 0; i < cities.getSize(); i++) {
-            
-        }
+//        
     }//GEN-LAST:event_comboBoxCitiesActionPerformed
 
     /**

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Gabriel Flores
- */
+ */ 
 public class Graph {
 
     private List cities;
@@ -136,7 +136,7 @@ public class Graph {
                 Edge edgeAux = (Edge) vertexAux.getListAdy().getValor(j);
                 if (edgeAux.getFinalCity().getNumCity() > vertexAux.getNumCity()) {
                     sb.append(edgeAux.getHomeCity().getNumCity()).append(",").append(edgeAux.getFinalCity().getNumCity()).append(",").append(edgeAux.getDistance()).append("\n");
-//                    sb.append(arista.getOrigen().getNumCiudad()).append(" ,").append(arista.getDestino().getNumCiudad()).append(" ,").append(arista.getDistancia()).append("\n")
+
                 }
             }
         }
