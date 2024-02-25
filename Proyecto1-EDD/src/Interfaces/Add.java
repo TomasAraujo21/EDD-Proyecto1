@@ -9,9 +9,7 @@ package Interfaces;
  * @author Christian
  */
 
-import EDD.Edge;
-import EDD.Vertex;
-import EDD.Graph;
+import EDD.*;
 import static Interfaces.Main.graph;
 import javax.swing.JOptionPane;
 
@@ -152,7 +150,7 @@ public class Add extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< Updated upstream
+
     private void agg_aristaAndPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agg_aristaAndPesoActionPerformed
         int num = Integer.parseInt(input_vertex.getText());
         Vertex vertex2 = new Vertex(num);
@@ -169,16 +167,12 @@ public class Add extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agg_aristaAndPesoActionPerformed
 
+
     private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
-//        this.setVisible(false);
-//        Add2 window1 = new Add2(v1);
-//        window1.setVisible(true);
-=======
-    private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
-        this.setVisible(false);
-        Add2 windowadd2 = new Add2(v1);
-        windowadd2.setVisible(true);
->>>>>>> Stashed changes
+            this.setVisible(false);
+            Add2 windowadd2 = new Add2(v1);
+            windowadd2.setVisible(true);
+
     }//GEN-LAST:event_finishActionPerformed
 
     private void add_vertexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_vertexActionPerformed

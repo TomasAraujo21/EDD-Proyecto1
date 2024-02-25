@@ -10,14 +10,20 @@ package Functions;
  */
 
 import EDD.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GraphFunc {
     public Graph convertString(String txt) {
         String[] lines = txt.split("\n");
         System.out.println(Arrays.toString(lines));
         Graph graph = new Graph();
-        List vertices = new List();
+        List cities = new List();
 
         boolean isVertex = true;
 
@@ -29,9 +35,9 @@ public class GraphFunc {
 
             if (isVertex) {
                 if (!line.equals("ciudad")) {
-                    int vertice = Integer.parseInt(line);
-                    Vertex v = new Vertex(vertice);
-                    vertices.addEnd(v);
+                    int vertex = Integer.parseInt(line);
+                    Vertex v = new Vertex(vertex);
+                    cities.addEnd(v);
                 }
             } else {
                 String[] partes = line.split(",");
@@ -39,17 +45,42 @@ public class GraphFunc {
                 int destiny = Integer.parseInt(partes[1]);
                 double weight = Double.parseDouble(partes[2]);
 
-                Vertex city1 = searchVertex(origin, vertices);
-                Vertex city2 = searchVertex(destiny, vertices);
+                Vertex city1 = searchVertex(origin, cities);
+                Vertex city2 = searchVertex(destiny, cities);
                 city1.getListAdy().addEnd(new Edge(city1, city2, weight));
                 city2.getListAdy().addEnd(new Edge(city2, city1, weight));
             }
         }
 
-        graph.setCities(vertices);
+        graph.setCities(cities);
 
         return graph;
     }
+//      public static void main(String[] args) {
+//        String filePath = "datos.txt"; // Cambia esto al path correcto de tu archivo
+//
+//        List<String> ciudadData = new ArrayList<>();
+//        List<String> aristasData = new ArrayList<>();
+//
+//        try {
+//            readData(filePath, ciudadData, aristasData);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Mostrar datos leídos
+//        System.out.println("Datos de la ciudad:");
+//        for (String line : ciudadData) {
+//            System.out.println(line);
+//        }
+//
+//        System.out.println("Aristas:");
+//        for (String line : aristasData) {
+//            System.out.println(line);
+//        }
+//    }
+
+   
     
     public Graph convertStringPh(String txt) {
         String[] lines = txt.split("\n");
