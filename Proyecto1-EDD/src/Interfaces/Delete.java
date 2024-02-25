@@ -4,6 +4,9 @@ package Interfaces;
  * Interfaz en donde se va a poder eliminar una cantidad específica de ciudades.
  * @author Christian
  */
+
+import Functions.GraphFunc;
+import static Interfaces.Main.graph;
 public class Delete extends javax.swing.JFrame {
 
     /**
@@ -34,8 +37,8 @@ public class Delete extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         delete = new javax.swing.JButton();
-        input_delete = new javax.swing.JTextField();
         TITULO_Principal = new javax.swing.JLabel();
+        comboBoxCities = new javax.swing.JComboBox<>();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,26 +71,24 @@ public class Delete extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 102, 52));
-
-        input_delete.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        input_delete.setForeground(new java.awt.Color(0, 0, 0));
-        input_delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                input_deleteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(input_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 47, -1));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 102, 52));
 
         TITULO_Principal.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         TITULO_Principal.setForeground(new java.awt.Color(255, 255, 255));
         TITULO_Principal.setText("Eliminar ciudad");
         getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
+        comboBoxCities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCitiesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboBoxCities, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+
         background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
         background.setText("Gabriel Flores");
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 470));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,9 +107,11 @@ public class Delete extends javax.swing.JFrame {
         window1.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
-    private void input_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_deleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_input_deleteActionPerformed
+    private void comboBoxCitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCitiesActionPerformed
+        for (int i = 0; i < cities.getSize(); i++) {
+            
+        }
+    }//GEN-LAST:event_comboBoxCitiesActionPerformed
 
     /**
      * @param args Se muestra en pantalla la ventana Delete.
@@ -151,9 +154,9 @@ public class Delete extends javax.swing.JFrame {
     private javax.swing.JButton back;
     private javax.swing.JLabel background;
     private javax.swing.JLabel city_icon;
+    private javax.swing.JComboBox<String> comboBoxCities;
     private javax.swing.JLabel cross_icon;
     private javax.swing.JButton delete;
-    private javax.swing.JTextField input_delete;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

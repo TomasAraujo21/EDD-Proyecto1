@@ -9,7 +9,7 @@ package Functions;
  * @author Gabriel Flores
  * 
  */
-public class helpers {
+public class Helpers {
     private boolean isNumber(String num){
         return num.matches("[0-9]*");
     }
