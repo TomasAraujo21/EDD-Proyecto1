@@ -1,5 +1,10 @@
 package Interfaces;
 
+
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
+import org.graphstream.ui.view.Viewer.CloseFramePolicy;
     /**
      * Interfaz en donde se va a mostrar por pantalla el grafo creado.
      * @author Christian
@@ -11,12 +16,41 @@ public class Simulate2 extends javax.swing.JFrame {
      */
     public static Main v1;
     
+    private Graph graph;
+
     public Simulate2(Main v1) {
         initComponents();
         this.v1 = v1;
         v1.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        // Crea y visualiza el grafo
+        createAndVisualizeGraph();
+    }
+    
+    // Metodo para crear y visualizar el grafo
+    private void createAndVisualizeGraph() {
+        
+        // Coloca el paquete de GraphStream UI
+        System.setProperty("org.graphstream.ui", "swing");
+        
+        // Crea un nuevo grafo
+        graph = new SingleGraph("Grafo1");
+
+        // Añade los vértices
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+
+        // Añade las aristas
+        graph.addEdge("AB", "A", "B");
+        graph.addEdge("BC", "B", "C");
+        graph.addEdge("CA", "C", "A");
+
+        // Muestra el grafo
+        Viewer viewer = graph.display();
+        viewer.setCloseFramePolicy(CloseFramePolicy.CLOSE_VIEWER);
     }
 
     /**
@@ -28,11 +62,10 @@ public class Simulate2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        graph = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         finish = new javax.swing.JButton();
-        optimal_distance = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        optimal_distance = new javax.swing.JScrollPane();
+        optimal_route = new javax.swing.JScrollPane();
         graph_icon = new javax.swing.JLabel();
         TITULO_Principal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -41,19 +74,6 @@ public class Simulate2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout graphLayout = new javax.swing.GroupLayout(graph);
-        graph.setLayout(graphLayout);
-        graphLayout.setHorizontalGroup(
-            graphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        graphLayout.setVerticalGroup(
-            graphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 300, 210));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 108, -1, -1));
@@ -65,13 +85,13 @@ public class Simulate2 extends javax.swing.JFrame {
                 finishActionPerformed(evt);
             }
         });
-        getContentPane().add(finish, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 80, 30));
+        getContentPane().add(finish, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 130, 40));
 
         optimal_distance.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(optimal_distance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 150, -1));
+        getContentPane().add(optimal_distance, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 150, 30));
 
-        jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 150, 30));
+        optimal_route.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(optimal_route, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 150, 30));
 
         graph_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/graph.png"))); // NOI18N
         getContentPane().add(graph_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 60, 60));
@@ -82,12 +102,14 @@ public class Simulate2 extends javax.swing.JFrame {
         getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ruta óptima:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 110, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 110, 30));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Distancia óptima:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, 30));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
@@ -141,12 +163,11 @@ public class Simulate2 extends javax.swing.JFrame {
     private javax.swing.JLabel TITULO_Principal;
     private javax.swing.JLabel background;
     private javax.swing.JButton finish;
-    private javax.swing.JPanel graph;
     private javax.swing.JLabel graph_icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField optimal_distance;
+    private javax.swing.JScrollPane optimal_distance;
+    private javax.swing.JScrollPane optimal_route;
     // End of variables declaration//GEN-END:variables
 }
