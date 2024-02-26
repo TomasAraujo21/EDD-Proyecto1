@@ -5,6 +5,7 @@ package Interfaces;
 import EDD.Edge;
 import EDD.Vertex;
 import EDD.Graph;
+import Functions.Helpers;
 import static Interfaces.Main.graph;
 import javax.swing.JOptionPane;
 
@@ -43,18 +44,17 @@ public class Add extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         add_icon = new javax.swing.JLabel();
         city_icon = new javax.swing.JLabel();
         add_vertex = new javax.swing.JButton();
-        agg_aristaAndPeso = new javax.swing.JButton();
         input_vertex = new javax.swing.JTextField();
-        input_arista = new javax.swing.JTextField();
-        input_weight = new javax.swing.JTextField();
-        finish = new javax.swing.JButton();
         back = new javax.swing.JButton();
         TITULO_Principal = new javax.swing.JLabel();
+<<<<<<< HEAD
+        next = new javax.swing.JButton();
+=======
+        step2 = new javax.swing.JButton();
+>>>>>>> b50a47fc21b21679d96561998a872afaf6db7d1e
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,17 +65,7 @@ public class Add extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Número del vértice:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Arista:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Peso:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         add_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus.png"))); // NOI18N
         jPanel1.add(add_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 30, 30));
@@ -90,34 +80,15 @@ public class Add extends javax.swing.JFrame {
                 add_vertexActionPerformed(evt);
             }
         });
-        jPanel1.add(add_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 130, -1));
-
-        agg_aristaAndPeso.setForeground(new java.awt.Color(0, 0, 0));
-        agg_aristaAndPeso.setText("Añadir peso y arista");
-        agg_aristaAndPeso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agg_aristaAndPesoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(agg_aristaAndPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 160, 40));
+        jPanel1.add(add_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 130, -1));
 
         input_vertex.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(input_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 160, -1));
-
-        input_arista.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(input_arista, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 160, -1));
-
-        input_weight.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(input_weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 160, -1));
-
-        finish.setForeground(new java.awt.Color(0, 0, 0));
-        finish.setText("Finalizar");
-        finish.addActionListener(new java.awt.event.ActionListener() {
+        input_vertex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finishActionPerformed(evt);
+                input_vertexActionPerformed(evt);
             }
         });
-        jPanel1.add(finish, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 90, 50));
+        jPanel1.add(input_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 160, -1));
 
         back.setForeground(new java.awt.Color(0, 0, 0));
         back.setText("Volver");
@@ -133,6 +104,25 @@ public class Add extends javax.swing.JFrame {
         TITULO_Principal.setText("Añadir ciudad");
         jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
 
+<<<<<<< HEAD
+        next.setForeground(new java.awt.Color(0, 0, 0));
+        next.setText("Siguiente");
+        next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 90, 50));
+=======
+        step2.setText("siguiente");
+        step2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                step2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(step2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 90, 50));
+>>>>>>> b50a47fc21b21679d96561998a872afaf6db7d1e
+
         background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
         background.setText("Gabriel Flores");
@@ -142,48 +132,8 @@ public class Add extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- *  Acción del botón Agregar arista y peso.
- *  Agrega una nueva Arista y Peso con el respectivo número al grafo.
- * @param evt El evento de acción desencadenado por el botón "Agregar arista y peso"
- */
-    private void agg_aristaAndPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agg_aristaAndPesoActionPerformed
-        // Cambia input_arista a número
-        int num = Integer.parseInt(input_arista.getText());
-        
-        // Crea un nuevo vertice con el número dado
-        Vertex vertex2 = new Vertex(num);
-        
-        // Cambia input_weight a número
-        int weight = Integer.parseInt(input_weight.getText());
-        
-        // Chequea si el vértice ya existe en el gráfico
-        if(graph.findCity(vertex2)){
-            
-            // Crea una nueva arista con el vértice dado y el peso
-            Edge edge = new Edge(graph.findCity2(Integer.parseInt(input_vertex.getText())), graph.findCity2(num), weight);
-            
-            // Añade la arista a la lista de adyacencia del vértice.
-            graph.findCity2(Integer.parseInt(input_vertex.getText())).getListAdy().InsertarFinal(edge);
-            
-            // Muestra un mensaje de éxito.
-            JOptionPane.showMessageDialog(null, "Arista y peso añadido con éxito");
-        }else{
-            // Muestra un mensaje de error si no se puede añadir la arista y el peso.
-            JOptionPane.showMessageDialog(null, "No se puede añadir la arista y el peso");
-        }
-    }//GEN-LAST:event_agg_aristaAndPesoActionPerformed
-    /**
-     *  Cierra la ventana actual y abre Main
-     * @param evt El evento de acción desencadenado por el botón "Finalizar"
-     */
-    private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
-        this.setVisible(false);
-        Welcome b = new Welcome();
-        Main window1 = new Main(b);
-        window1.setVisible(true);
-    }//GEN-LAST:event_finishActionPerformed
-    /**
+
+   /**
      *  Cierra la ventana actual y abre Main
      * @param evt El evento de acción desencadenado por el botón "Finalizar"
      */
@@ -195,18 +145,22 @@ public class Add extends javax.swing.JFrame {
             // Crea un nuevo vertice con el número dado
             Vertex vertexAux = new Vertex(num);
             
-            // Añade el vertice al grafo
-            graph.addCity(vertexAux);
+            if(!graph.findCity(vertexAux)){
+                graph.addCity(vertexAux);
             
-            // Muestra un mensaje de éxito
-            JOptionPane.showMessageDialog(null, "Vértice creado con éxito");
-            
-            // Cierra la ventana actual y abre Main
-            this.setVisible(false);
-            Welcome b = new Welcome();
-            Main window1 = new Main(b);
-            window1.setVisible(true);
-        } catch (NumberFormatException ex) {
+                // Muestra un mensaje de éxito
+                JOptionPane.showMessageDialog(null, "Vértice creado con éxito");
+
+<<<<<<< HEAD
+            // Muestra un mensaje de error si el vértice ya existe   
+=======
+                // Cierra la ventana actual y abre Main
+                
+>>>>>>> b50a47fc21b21679d96561998a872afaf6db7d1e
+            } else{
+                JOptionPane.showMessageDialog(null, "El vértice ya existe!");
+            }
+        }catch (NumberFormatException ex) {
             // Muestra un mensaje de error si introduces un dato inválido.
             JOptionPane.showMessageDialog(null, "Introduzca un dato válido");
         }
@@ -221,6 +175,28 @@ public class Add extends javax.swing.JFrame {
         Main window1 = new Main(b);
         window1.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void input_vertexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_vertexActionPerformed
+        
+    }//GEN-LAST:event_input_vertexActionPerformed
+
+<<<<<<< HEAD
+    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
+        this.setVisible(false);
+        Welcome q = new Welcome();
+        Main x = new Main(q);
+        Add i = new Add(x);
+        Add2 window2 = new Add2(i);
+        window2.setVisible(true);
+    }//GEN-LAST:event_nextActionPerformed
+=======
+    private void step2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step2ActionPerformed
+        this.setVisible(false);
+        Welcome b = new Welcome();
+        Add2 window1 = new Add2(this);
+        window1.setVisible(true);
+    }//GEN-LAST:event_step2ActionPerformed
+>>>>>>> b50a47fc21b21679d96561998a872afaf6db7d1e
 
     /**
      * @param args Se muestra en pantalla la ventana Add
@@ -263,17 +239,16 @@ public class Add extends javax.swing.JFrame {
     private javax.swing.JLabel TITULO_Principal;
     private javax.swing.JLabel add_icon;
     private javax.swing.JButton add_vertex;
-    private javax.swing.JButton agg_aristaAndPeso;
     private javax.swing.JButton back;
     private javax.swing.JLabel background;
     private javax.swing.JLabel city_icon;
-    private javax.swing.JButton finish;
-    private javax.swing.JTextField input_arista;
     private javax.swing.JTextField input_vertex;
-    private javax.swing.JTextField input_weight;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+<<<<<<< HEAD
+    private javax.swing.JButton next;
+=======
+    private javax.swing.JButton step2;
+>>>>>>> b50a47fc21b21679d96561998a872afaf6db7d1e
     // End of variables declaration//GEN-END:variables
 }

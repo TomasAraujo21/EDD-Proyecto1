@@ -1,8 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/Chris/Desktop/Universidad/ESTRUCTURA%20DE%20DATOS/PROYECTO%201/Proyecto1-EDD/src/Functions/SaveTXT.java</file>
             <file>file:/C:/Users/Chris/Desktop/Universidad/ESTRUCTURA%20DE%20DATOS/PROYECTO%201/Proyecto1-EDD/src/Functions/ShowGraph.java</file>
             <file>file:/C:/Users/Chris/Desktop/Universidad/ESTRUCTURA%20DE%20DATOS/PROYECTO%201/Proyecto1-EDD/src/Interfaces/Load.java</file>
@@ -18,6 +20,24 @@
             <file>file:/C:/Users/Chris/Desktop/Universidad/ESTRUCTURA%20DE%20DATOS/PROYECTO%201/Proyecto1-EDD/src/Interfaces/Add2.java</file>
             <file>file:/C:/Users/Chris/Desktop/Universidad/ESTRUCTURA%20DE%20DATOS/PROYECTO%201/Proyecto1-EDD/src/Interfaces/Add.java</file>
             <file>file:/C:/Users/Chris/Desktop/Universidad/ESTRUCTURA%20DE%20DATOS/PROYECTO%201/Proyecto1-EDD/src/Functions/SystemFunc.java</file>
+=======
+            <file>file:/C:/Users/Chris/Downloads/EDD-Proyecto1-main/Proyecto1-EDD/src/Functions/GraphFunc.java</file>
+            <file>file:/C:/Users/Chris/Downloads/EDD-Proyecto1-main/Proyecto1-EDD/src/Interfaces/Add.java</file>
+            <file>file:/C:/Users/Chris/Downloads/EDD-Proyecto1-main/Proyecto1-EDD/src/Interfaces/Add2.java</file>
+            <file>file:/C:/Users/Chris/Downloads/EDD-Proyecto1-main/Proyecto1-EDD/src/Interfaces/Simulate2.java</file>
+            <file>file:/C:/Users/Chris/Downloads/EDD-Proyecto1-main/Proyecto1-EDD/src/Functions/ShowGraph.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/tomasaraujo/Documents/GitHub/EDD-Proyecto1/Proyecto1-EDD/src/Classes/Ant.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> b50a47fc21b21679d96561998a872afaf6db7d1e

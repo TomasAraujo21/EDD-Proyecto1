@@ -91,9 +91,11 @@ public class Ant {
     }
 
     /**
-     * @
-     * @param city
-     * @return 
+     * Método para verificar si una ciudad ya ha sido previamente visitada.
+     * 
+     * @param city ciudad que queremos verificar
+     * @return true: si la ciudad ha sido visitada
+     *         false: si la ciudad no ha sido visitada
      */
     public boolean visited(Vertex city) {
         // verificar que la ciudad que estoy pasando por parametro esta en la lista de ciudades recorridas de la hormiga
@@ -111,6 +113,12 @@ public class Ant {
         }
         return false;
     }
+    
+    /**
+     * Método para agregar una ciudad a la lista de ciudades ya visitadas
+     * 
+     * @param city ciudad que queremos agregar a la lista de ciudades ya visitadas
+     */
 
     public void addPastCity(Vertex city) {
         // primero verifico que esa ciudad no esta en la lista de ciudades recorridas
@@ -124,6 +132,12 @@ public class Ant {
         }
     }
 
+    /**
+     * Método para visitar una nueva ciudad
+     * 
+     * @param city ciudad a visitar
+     * @param dist distancia a recorrer para visitar la ciudad
+     */
     public void visitCity(Vertex city, double dist) {
         // Primero verificamos que la ciudad que pasamos como parametro no haya sido visitada
         // Si no ha sido visitada, la agregamos a la lista de ciudades recorridas
