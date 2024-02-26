@@ -8,13 +8,14 @@ import EDD.Vertex;
 import Functions.GraphFunc;
 import static Interfaces.Main.graph;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 public class Delete extends javax.swing.JFrame {
 
     /**
      * Se crea la ventana Delete.
      */
-    DefaultComboBoxModel modelCombo = new DefaultComboBoxModel(); 
+    DefaultComboBoxModel comboModel = new DefaultComboBoxModel(); 
     public static Main v1;
     
     public Delete(Main v1) {
@@ -26,7 +27,8 @@ public class Delete extends javax.swing.JFrame {
         
         for (int i = 0; i < graph.numberCities(); i++) {
             Vertex vertexAux = (Vertex) graph.getCities().getValor(i);
-            modelCombo.addElement(vertexAux.getNumCity());
+            comboModel.addElement(vertexAux.getNumCity());
+            
         }
     }
 
@@ -45,7 +47,7 @@ public class Delete extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         TITULO_Principal = new javax.swing.JLabel();
-        comboBoxCities = new javax.swing.JComboBox<>();
+        comboDelete = new javax.swing.JComboBox<>();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,12 +87,14 @@ public class Delete extends javax.swing.JFrame {
         TITULO_Principal.setText("Eliminar ciudad");
         getContentPane().add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        comboBoxCities.addActionListener(new java.awt.event.ActionListener() {
+        comboDelete.setModel(comboModel
+        );
+        comboDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxCitiesActionPerformed(evt);
+                comboDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(comboBoxCities, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+        getContentPane().add(comboDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
 
         background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
@@ -101,7 +105,8 @@ public class Delete extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-      
+        deleteindex();
+                
     }//GEN-LAST:event_deleteActionPerformed
     /**
      *  Cierra la ventana actual y abre Main
@@ -114,13 +119,18 @@ public class Delete extends javax.swing.JFrame {
         window1.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
-    private void comboBoxCitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCitiesActionPerformed
-//        
-    }//GEN-LAST:event_comboBoxCitiesActionPerformed
+    private void comboDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboDeleteActionPerformed
 
     /**
      * @param args Se muestra en pantalla la ventana Delete.
      */
+    public DefaultListModel deleteindex(){
+        DefaultListModel model = (DefaultListModel) comboDelete.getModel();
+        model.remove(comboDelete.getSelectedIndex());
+        return model;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -159,7 +169,7 @@ public class Delete extends javax.swing.JFrame {
     private javax.swing.JButton back;
     private javax.swing.JLabel background;
     private javax.swing.JLabel city_icon;
-    private javax.swing.JComboBox<String> comboBoxCities;
+    private javax.swing.JComboBox<String> comboDelete;
     private javax.swing.JLabel cross_icon;
     private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
