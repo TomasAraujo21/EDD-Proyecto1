@@ -19,8 +19,8 @@ public class GraphFunc {
         Graph graph = new Graph();
         List cities = new List();
         
-        String replaceCity = txt.replaceFirst("ciuadad", "Ω");
-        String replaceRoad = replaceCity.replaceFirst("arista", "Ω");
+        String replaceCity = txt.replaceFirst("ciudad", "Ω");
+        String replaceRoad = replaceCity.replaceFirst("aristas", "Ω");
         
         String[] lines = replaceRoad.split("Ω");
         
