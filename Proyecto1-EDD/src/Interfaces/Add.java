@@ -48,9 +48,9 @@ public class Add extends javax.swing.JFrame {
         city_icon = new javax.swing.JLabel();
         add_vertex = new javax.swing.JButton();
         input_vertex = new javax.swing.JTextField();
-        step2 = new javax.swing.JButton();
         back = new javax.swing.JButton();
         TITULO_Principal = new javax.swing.JLabel();
+        step2 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,15 +86,6 @@ public class Add extends javax.swing.JFrame {
         });
         jPanel1.add(input_vertex, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 160, -1));
 
-        step2.setForeground(new java.awt.Color(0, 0, 0));
-        step2.setText("Siguiente paso");
-        step2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                step2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(step2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 150, 50));
-
         back.setForeground(new java.awt.Color(0, 0, 0));
         back.setText("Volver");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +100,14 @@ public class Add extends javax.swing.JFrame {
         TITULO_Principal.setText("Añadir ciudad");
         jPanel1.add(TITULO_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
 
+        step2.setText("siguiente");
+        step2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                step2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(step2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 90, 50));
+
         background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
         background.setText("Gabriel Flores");
@@ -120,16 +119,6 @@ public class Add extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
    /**
-     *  Cierra la ventana actual y abre Main
-     * @param evt El evento de acción desencadenado por el botón "Finalizar"
-     */
-    private void step2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step2ActionPerformed
-        this.setVisible(false);
-        Welcome b = new Welcome();
-        Main window1 = new Main(b);
-        window1.setVisible(true);
-    }//GEN-LAST:event_step2ActionPerformed
-    /**
      *  Cierra la ventana actual y abre Main
      * @param evt El evento de acción desencadenado por el botón "Finalizar"
      */
@@ -148,10 +137,7 @@ public class Add extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Vértice creado con éxito");
 
                 // Cierra la ventana actual y abre Main
-                this.setVisible(false);
-                Welcome b = new Welcome();
-                Main window1 = new Main(b);
-                window1.setVisible(true);
+                
             } else{
                 JOptionPane.showMessageDialog(null, "El vértice ya existe!");
             }
@@ -174,6 +160,13 @@ public class Add extends javax.swing.JFrame {
     private void input_vertexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_vertexActionPerformed
         
     }//GEN-LAST:event_input_vertexActionPerformed
+
+    private void step2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step2ActionPerformed
+        this.setVisible(false);
+        Welcome b = new Welcome();
+        Add2 window1 = new Add2(this);
+        window1.setVisible(true);
+    }//GEN-LAST:event_step2ActionPerformed
 
     /**
      * @param args Se muestra en pantalla la ventana Add

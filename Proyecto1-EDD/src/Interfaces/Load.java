@@ -167,10 +167,17 @@ public class Load extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        
+        if (LoadFile != null) {
             GraphFunc func = new GraphFunc();
             graph = func.convertString(LoadFile.getText());
-            System.out.println(graph.toString());
+
+            JOptionPane.showMessageDialog(null, "Grafo cargado con exito");
+
+            this.setVisible(false);
+            Welcome b = new Welcome();
+            Main window1 = new Main(b);
+            window1.setVisible(true);
+        }
         
     }//GEN-LAST:event_saveActionPerformed
 
