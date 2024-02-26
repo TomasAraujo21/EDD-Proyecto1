@@ -1,10 +1,9 @@
 package Interfaces;
 
-
-import org.graphstream.graph.Graph;
+import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
-import org.graphstream.ui.view.Viewer.CloseFramePolicy;
+import Functions.ShowGraph;
     /**
      * Interfaz en donde se va a mostrar por pantalla el grafo creado.
      * @author Christian
@@ -16,41 +15,12 @@ public class Simulate2 extends javax.swing.JFrame {
      */
     public static Main v1;
     
-    private Graph graph;
-
     public Simulate2(Main v1) {
         initComponents();
         this.v1 = v1;
         v1.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
-        // Crea y visualiza el grafo
-        createAndVisualizeGraph();
-    }
-    
-    // Metodo para crear y visualizar el grafo
-    private void createAndVisualizeGraph() {
-        
-        // Coloca el paquete de GraphStream UI
-        System.setProperty("org.graphstream.ui", "swing");
-        
-        // Crea un nuevo grafo
-        graph = new SingleGraph("Grafo1");
-
-        // Añade los vértices
-        graph.addNode("A");
-        graph.addNode("B");
-        graph.addNode("C");
-
-        // Añade las aristas
-        graph.addEdge("AB", "A", "B");
-        graph.addEdge("BC", "B", "C");
-        graph.addEdge("CA", "C", "A");
-
-        // Muestra el grafo
-        Viewer viewer = graph.display();
-        viewer.setCloseFramePolicy(CloseFramePolicy.CLOSE_VIEWER);
     }
 
     /**
@@ -66,6 +36,7 @@ public class Simulate2 extends javax.swing.JFrame {
         finish = new javax.swing.JButton();
         optimal_distance = new javax.swing.JScrollPane();
         optimal_route = new javax.swing.JScrollPane();
+        show_graph = new javax.swing.JButton();
         graph_icon = new javax.swing.JLabel();
         TITULO_Principal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -92,6 +63,15 @@ public class Simulate2 extends javax.swing.JFrame {
 
         optimal_route.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(optimal_route, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 150, 30));
+
+        show_graph.setForeground(new java.awt.Color(0, 0, 0));
+        show_graph.setText("Mostrar grafo");
+        show_graph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_graphActionPerformed(evt);
+            }
+        });
+        getContentPane().add(show_graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 130, 60));
 
         graph_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/graph.png"))); // NOI18N
         getContentPane().add(graph_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 60, 60));
@@ -126,6 +106,15 @@ public class Simulate2 extends javax.swing.JFrame {
         Main window1 = new Main(b);
         window1.setVisible(true);
     }//GEN-LAST:event_finishActionPerformed
+
+    private void show_graphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_graphActionPerformed
+
+    System.setProperty("org.graphstream.ui", "swing");
+    
+    ShowGraph showGraph = new ShowGraph();
+
+    showGraph.showGraph();
+    }//GEN-LAST:event_show_graphActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -169,5 +158,6 @@ public class Simulate2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane optimal_distance;
     private javax.swing.JScrollPane optimal_route;
+    private javax.swing.JButton show_graph;
     // End of variables declaration//GEN-END:variables
 }
