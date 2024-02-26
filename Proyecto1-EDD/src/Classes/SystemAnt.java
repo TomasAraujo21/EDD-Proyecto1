@@ -11,8 +11,6 @@ import EDD.*;
  * @author tomasaraujo
  */
 public class SystemAnt {
-    // AQUI VA TODA LA INFO QUE SI ALPHA, BETA, Y ESO.
-    // LAS PRIMITIVAS VAN A SER, ACTUALIZAR LOS CICLOS, EVPARORAR FEROMONAS, ACTUALIZAR FEROMONAS.
 
     private List ants;
     private double q;
@@ -26,10 +24,23 @@ public class SystemAnt {
     private String pheromones;
     private double optimalDistance;
     private List optimalRoute;
-    private List history;       // EN EL HISTORIAL GUARDO LOS OBJETOS DE TIPO OPTIMO
+    private List history;       
     private List tempHistory;
     private int cycles;
 
+    
+    /**
+     * COnstructro de la clase 'SystemAnt'
+     * 
+     * @param ants
+     * @param rho
+     * @param alpha
+     * @param beta
+     * @param startCity
+     * @param endCity
+     * @param graph
+     * @param cycles 
+     */
     public SystemAnt(List ants, double rho, double alpha, double beta, Vertex startCity, Vertex endCity, Graph graph, int cycles) {
         this.ants = ants;
         this.alpha = alpha;
@@ -48,8 +59,6 @@ public class SystemAnt {
     }
       
   
-
-    // HACER TODOS LOS GETTER Y SETTER PARA LOS PARAMETROS
     /**
      * @return the ants
      */
@@ -233,6 +242,10 @@ public class SystemAnt {
         this.history = history;
     }
 
+    
+    /**
+     * Método para inicializar el sistema
+     */
     public void runSystem() {
         for (int i = 0; i < cycles; i++) {
             for (int j = 0; j < ants.getSize(); j++) {
@@ -251,6 +264,12 @@ public class SystemAnt {
 
     }
 
+    
+    /**
+     * Método para realizar un ciclo del sistema
+     * 
+     * @param ant la hormiga a realizar el ciclo
+     */
     public void fullCycle(Ant ant) {
         for (int i = 0; i < graph.getCities().getSize(); i++) {
             if (ant.getCity() != endCity) {
@@ -278,6 +297,9 @@ public class SystemAnt {
         }
     }
     
+    /**
+     * Método para resetear los atributos de las hormigas
+     */
     public void resetAnts() {
         for (int i = 0; i < ants.getSize(); i++) {
             Ant ant = (Ant) ants.getValor(i);
@@ -287,6 +309,12 @@ public class SystemAnt {
         }
     }
 
+    /**
+     * Método para obtener una lista de ciudades candidatas a la cual la gormiga se puede mover
+     * 
+     * @param ant la hormiga mover
+     * @return possibleCities: lista de ciudades candidatas
+     */
     public List getPossibleCity(Ant ant) {
         Vertex city = ant.getCity();
         List possibleCities = new List();
@@ -299,19 +327,11 @@ public class SystemAnt {
         return possibleCities;
     }
 
-    /*
-     EXPLICACION
-     (En la formula)
-     P = probabilidad
-     k = hormiga
-     r = ciudad inicial
-     s = ciudad final
-     Mk = son las ciudades candidatas
-     el 0 que esta en la formula, es porque si una ciudad no esta en Mk (las ciudades candidatas) la probabilidad de ir es cero 0.
-     T(r,s) = la cantidad de feromonas que hay en esa arista, ^ alpha (elevado)
-     n(r,s) = Q/distanciar-s, ^ beta (elevado)
-     alpha = es 1 por default
-     beta = 2 por deafault
+    /**
+     * Método donde se emplea la fórmula para calcular las probabilidades de moverse a una ciudad u otra
+     * 
+     * @param possibleCities la lista de ciudades candidatas a visitar
+     * @return odds: las probabildiades de visitar la ciudad
      */
     public List chances(List possibleCities) {
         List odds = new List();
@@ -327,6 +347,13 @@ public class SystemAnt {
         return odds;
     }
 
+    /**
+     * Método para decidir que ciudad va a visitar la hormiga
+     * 
+     * @param possibleCities lista de posibles ciudades
+     * @param odds probabilidad de visitar la ciudad
+     * @return retornar la ciudad a visitar
+     */
     public Vertex decideNextCity(List possibleCities, List odds) {
         int position = -1;
         double bestOdd = 0.0;
@@ -346,6 +373,12 @@ public class SystemAnt {
         return finalEdge.getFinalCity();
     }
 
+    
+    /**
+     * Método para actualizar las feromonas de una arista cuando una homriga pasa por ella
+     * 
+     * @param ant hromiga que contribuirá al cambio de feromonas
+     */
     public void updatePheromones(Ant ant) {
         double cont = q/ant.getDistance();
         for (int i = 0; i < ant.getPastCities().getSize()-1; i++) {
@@ -357,6 +390,10 @@ public class SystemAnt {
         }
     }
 
+    
+    /**
+     * Método para evaporar las feromonas
+     */
     public void evaporatePheromones() {
         for (int i = 0; i < graph.getCities().getSize(); i++) {
             Vertex currentCity = (Vertex) graph.getCities().getValor(i);

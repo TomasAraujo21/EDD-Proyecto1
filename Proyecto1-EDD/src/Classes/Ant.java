@@ -91,9 +91,11 @@ public class Ant {
     }
 
     /**
-     * @
-     * @param city
-     * @return 
+     * Método para verificar si una ciudad ya ha sido previamente visitada.
+     * 
+     * @param city ciudad que queremos verificar
+     * @return true: si la ciudad ha sido visitada
+     *         false: si la ciudad no ha sido visitada
      */
     public boolean visited(Vertex city) {
         Node pValue = new Node();
@@ -110,6 +112,12 @@ public class Ant {
         }
         return false;
     }
+    
+    /**
+     * Método para agregar una ciudad a la lista de ciudades ya visitadas
+     * 
+     * @param city ciudad que queremos agregar a la lista de ciudades ya visitadas
+     */
 
     public void addPastCity(Vertex city) {
         if (visited(city)) {
@@ -120,6 +128,12 @@ public class Ant {
         }
     }
 
+    /**
+     * Método para visitar una nueva ciudad
+     * 
+     * @param city ciudad a visitar
+     * @param dist distancia a recorrer para visitar la ciudad
+     */
     public void visitCity(Vertex city, double dist) {
         if (visited(city)) {
             
