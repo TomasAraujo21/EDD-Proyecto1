@@ -7,6 +7,7 @@ import EDD.Edge;
 import EDD.Vertex;
 import static Interfaces.Main.graph;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 58414
@@ -45,15 +46,16 @@ public class Add2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         finalCity = new javax.swing.JComboBox<>();
         initialCity = new javax.swing.JComboBox<>();
-        input_peso = new javax.swing.JTextField();
         agg_arista = new javax.swing.JButton();
         listo = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        inputDistance = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Ciudad Inicio");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jLabel1.setText("Ingrese la distancia");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel2.setText("Ciudad Final");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
@@ -66,14 +68,13 @@ public class Add2 extends javax.swing.JFrame {
         });
         getContentPane().add(finalCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
 
-        initialCity.setModel(comboModel);
+        initialCity.setModel(comboModel1);
         initialCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 initialCityActionPerformed(evt);
             }
         });
         getContentPane().add(initialCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-        getContentPane().add(input_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 230, -1));
 
         agg_arista.setText("Agregar Arista");
         agg_arista.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +82,7 @@ public class Add2 extends javax.swing.JFrame {
                 agg_aristaActionPerformed(evt);
             }
         });
-        getContentPane().add(agg_arista, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        getContentPane().add(agg_arista, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         listo.setText("Listo");
         listo.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +92,16 @@ public class Add2 extends javax.swing.JFrame {
         });
         getContentPane().add(listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
+        jLabel3.setText("Ciudad Inicio");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        inputDistance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDistanceActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inputDistance, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 200, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,9 +110,10 @@ public class Add2 extends javax.swing.JFrame {
             int startCity = Integer.parseInt((String) initialCity.getSelectedItem());
             int endtCity = Integer.parseInt((String) finalCity.getSelectedItem());
 
-            Edge edge = new Edge(graph.findCity2(startCity), graph.findCity2(endtCity), Double.parseDouble(input_peso.getText()));
-
+            Edge edge = new Edge(graph.findCity2(startCity), graph.findCity2(endtCity), Double.parseDouble(inputDistance.getText()));
+            JOptionPane.showMessageDialog(null, "Arista cargada con exito!");
             graph.findCity2(startCity).addEdges(edge);
+            
         }
     }//GEN-LAST:event_agg_aristaActionPerformed
 
@@ -119,6 +131,10 @@ public class Add2 extends javax.swing.JFrame {
     private void initialCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initialCityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_initialCityActionPerformed
+
+    private void inputDistanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDistanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputDistanceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,9 +175,10 @@ public class Add2 extends javax.swing.JFrame {
     private javax.swing.JButton agg_arista;
     private javax.swing.JComboBox<String> finalCity;
     private javax.swing.JComboBox<String> initialCity;
-    private javax.swing.JTextField input_peso;
+    private javax.swing.JTextField inputDistance;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton listo;
     // End of variables declaration//GEN-END:variables
 }

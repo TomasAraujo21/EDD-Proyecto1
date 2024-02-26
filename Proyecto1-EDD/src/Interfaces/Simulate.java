@@ -14,7 +14,7 @@ public class Simulate extends javax.swing.JFrame {
      * Se crea la ventana Simulate.
      */
     public static Main v1;
-    DefaultComboBoxModel comboModel = new DefaultComboBoxModel(); 
+    DefaultComboBoxModel comboModel1 = new DefaultComboBoxModel(); 
     DefaultComboBoxModel comboModel2 = new DefaultComboBoxModel(); 
     
     public Simulate(Main v1) {
@@ -25,7 +25,7 @@ public class Simulate extends javax.swing.JFrame {
         this.setResizable(false);
         for (int i = 0; i < graph.numberCities(); i++) {
             Vertex currentVertex = (Vertex)graph.getCities().getValor(i);
-            comboModel.addElement(currentVertex.getNumCity());
+            comboModel1.addElement(currentVertex.getNumCity());
             comboModel2.addElement(currentVertex.getNumCity());
         }
     }
@@ -66,10 +66,10 @@ public class Simulate extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 108, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(comboModel2);
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 70, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(comboModel1);
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 70, 30));
 
         run.setForeground(new java.awt.Color(0, 0, 0));
