@@ -16,23 +16,23 @@ import org.graphstream.ui.view.Viewer;
 public class ShowGraph {
 
     public void showGraph() {
-        // Create a new graph
+        // Crea un nuevo grafo
         Graph graph = new SingleGraph("Grafo");
 
-        // Set the graph's auto-create mode to true
+        // Coloca el grafo para que se cree automaticamente
         graph.setAutoCreate(true);
 
-        // Add nodes and edges
+        // Añade los nodos y las aristas
         Node node1 = graph.addNode("A");
         Node node2 = graph.addNode("B");
         Node node3 = graph.addNode("C");
         graph.addEdge("AB", "A", "B");
         graph.addEdge("BC", "B", "C");
 
-        // Display the graph
+        // Muestra el grafo
         Viewer viewer = graph.display();
 
-        // Customize the node colors and sizes
+        // Personalizacion del grafo
         node1.setAttribute("ui.style", "fill-color: red; size: 50px;");
         node2.setAttribute("ui.style", "fill-color: green; size: 50px;");
         node3.setAttribute("ui.style", "fill-color: blue; size: 50px;");

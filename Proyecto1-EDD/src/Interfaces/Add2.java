@@ -50,6 +50,7 @@ public class Add2 extends javax.swing.JFrame {
         listo = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         inputDistance = new javax.swing.JTextField();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,6 +102,11 @@ public class Add2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputDistance, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 200, -1));
+
+        background.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.jpg"))); // NOI18N
+        background.setText("Gabriel Flores");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,6 +179,7 @@ public class Add2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agg_arista;
+    private javax.swing.JLabel background;
     private javax.swing.JComboBox<String> finalCity;
     private javax.swing.JComboBox<String> initialCity;
     private javax.swing.JTextField inputDistance;
