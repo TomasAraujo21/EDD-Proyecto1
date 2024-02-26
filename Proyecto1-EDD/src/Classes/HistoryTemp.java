@@ -13,7 +13,15 @@ public class HistoryTemp {
     private int numAnt;
     private String roadTraveled;
     private String lengthTraveled;
-
+    
+    
+    /**
+     * Constructor de la clase 'HistoryTemp'
+     * 
+     * @param numAnt
+     * @param roadTraveled
+     * @param lengthTraveled 
+     */
     public HistoryTemp(int numAnt, String roadTraveled, String lengthTraveled) {
         this.numAnt = numAnt;
         this.roadTraveled = roadTraveled;
